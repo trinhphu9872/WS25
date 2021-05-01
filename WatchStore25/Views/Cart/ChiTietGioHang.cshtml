@@ -1,0 +1,63 @@
+﻿
+@{
+    ViewBag.Title = "ChiTietGioHang";
+    Layout = "~/Views/_LayoutPage2.cshtml";
+    <link href="~/style.css" rel="stylesheet" />
+}
+
+<div class="small-container cart-page">
+    <table>
+        <tr>
+            <th>Sản phẩm</th>
+            <th>Số lượng</th>
+            <th>Tổng tiền</th>
+        </tr>
+        <tr>
+            <td>
+                <div class="cart-info">
+                    <img src="~/Images/SanPham1.png">
+                    <div>
+                        <p>Casio AE-1200WHD-1AVDF – Dây Kim Loại</p>
+                        <small>Giá : 1.246.000đ</small>
+                        <br>
+                        <a href="">Xóa</a>
+                    </div>
+                </div>
+            </td>
+            <td><input type="number" value="1" min="0"></td>
+            <td>1.246.000đ</td>
+        </tr>
+        <tr>
+            <td>
+                <div class="cart-info">
+                    <img src="~/Images/SanPham2.png">
+                    <div>
+                        <p>G-Shock GA-400-1BDR – Dây Cao Su</p>
+                        <small>Giá : 4.230.000đ</small>
+                        <br>
+                        <a href="">Xóa</a>
+                    </div>
+                </div>
+            </td>
+            <td><input type="number" value="1" min="0"></td>
+            <td>4.230.000đ</td>
+        </tr>
+    </table>
+    <div class="total-price">
+        <table>
+            <tr>
+                <td>Tổng tiền</td>
+                <td>5.476.000đ</td>
+            </tr>
+            <tr>
+                <td>Thuế</td>
+                <td>547.600đ</td>
+            </tr>
+            <tr>
+                <td>Thành tiền</td>
+                <td>6.023.600đ</td>
+            </tr>
+        </table>
+    </div>
+</div>
+

@@ -1,0 +1,60 @@
+﻿
+@{
+    ViewBag.Title = "TaiKhoan";
+    Layout = "~/Views/_LayoutPage2.cshtml";
+    <link href="~/style.css" rel="stylesheet" />
+}
+<!--------account-page--------->
+<div class="account-page">
+    <div class="container">
+        <div class="row">
+            <div class="col-2">
+                <img src="~/Images/anh1.png" width="100%">
+            </div>
+
+            <div class="col-2">
+                <div class="form-container">
+                    <div class="form-btn">
+                        <span onclick="login()">Đăng nhập</span>
+                        <span onclick="register()">Đăng ký</span>
+                        <hr id="Indicator">
+                    </div>
+
+                    <form id="LoginForm">
+                        <input type="text" placeholder="Tên đăng nhập">
+                        <input type="password" placeholder="Mật khẩu">
+                        <button type="submit" class="btn">Đăng nhập</button>
+                        <a href="">Quên mật khẩu</a>
+                    </form>
+
+                    <form id="RegForm">
+                        <input type="text" placeholder="Tên đăng nhập">
+                        <input type="email" placeholder="Email">
+                        <input type="password" placeholder="Mật khẩu">
+                        <button type="submit" class="btn">Đăng ký</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--------js for toggle Form--------->
+<script>
+    var LoginForm = document.getElementById("LoginForm");
+    var RegForm = document.getElementById("RegForm");
+    var Indicator = document.getElementById("Indicator");
+
+    function register() {
+
+        RegForm.style.transform = "translateX(0px)";
+        LoginForm.style.transform = "translateX(0px)";
+        Indicator.style.transform = "translateX(100px)";
+    }
+    function login() {
+
+        RegForm.style.transform = "translateX(300px)";
+        LoginForm.style.transform = "translateX(300px)";
+        Indicator.style.transform = "translateX(0px)";
+    }
+</script>
+
