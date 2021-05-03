@@ -18,6 +18,11 @@ namespace WatchStore25
                 url: "{controller}/{action}",
                 defaults: new { controller = "Home", action = "TrangChu"}
             );
+            routes.MapRoute(
+            name: "Login",
+            url: "{controller}/{action}",
+            defaults: new { controller = "Login", action = "Index" }
+      );
         }
     }
 }

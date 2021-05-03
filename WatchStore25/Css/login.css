@@ -1,0 +1,26 @@
+﻿* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+.bg {
+    background-image: url(../Images/banner3.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.opacityCard {
+    opacity: 0.9;
+}
+
+.opacityText {
+    opacity: 1;
+}
+
+.fix-size {
+    margin: 180px 330px 0;
+    background-color: white;
+    padding: 30px;
+    border-radius: 20px;
+}

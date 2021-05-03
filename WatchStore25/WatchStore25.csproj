@@ -88,8 +88,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Css\login.css" />
     <Content Include="Global.asax" />
     <Content Include="Images\anh1.png" />
+    <Content Include="Images\banner3.jpg" />
     <Content Include="Images\Brand1.png" />
     <Content Include="Images\Brand2.png" />
     <Content Include="Images\Brand3.png" />
@@ -126,6 +128,8 @@
     <Content Include="Images\SanPham8.png" />
     <Content Include="Images\SanPham9.png" />
     <Content Include="style.css" />
+    <Content Include="test1.html" />
+    <Content Include="test2.html" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -133,6 +137,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\CartController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\ManController.cs" />
     <Compile Include="Controllers\WomanController.cs" />
     <Compile Include="Global.asax.cs">
@@ -150,6 +155,8 @@
     <Content Include="Views\Woman\SanPhamNu.cshtml" />
     <Content Include="Views\Cart\ChiTietGioHang.cshtml" />
     <Content Include="Views\Account\TaiKhoan.cshtml" />
+    <Content Include="Views\Login\Index.cshtml" />
+    <Content Include="Views\Layout.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
