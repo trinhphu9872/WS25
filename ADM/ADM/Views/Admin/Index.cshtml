@@ -1,0 +1,205 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+@Html.Partial("Event_")
+<main>
+
+    <div class="cards">
+
+        <div>
+            <div class="card-single">
+                <div>
+                    <h1>79</h1>
+                    <span>Sản Phẩm</span>
+                </div>
+                <div>
+                    <span class="las la-clipboard-list"></span>
+                </div>
+            </div>
+
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="color-table-if" width="100%">
+                        <thead>
+                            <tr>
+                                <td>Mã Sản Phẩm </td>
+                                <td>Tên Sản Phẩm</td>
+                                <td>Số Lượng</td>
+                                <td>Giá</td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><span class="status pink"></span>WS001</td>
+                                <td>Casio AE-1200WHD-1AVDF</td>
+                                <td>101</td>
+                                <td>1.246.000 VNĐ</td>
+                                <td><button class="detail">Chi Tiết<span class="las la-arrow-right"></span>
+                            </tr>
+                            <tr>
+                                <td><span class="status pink"></span>WS002</td>
+                                <td>G-Shock GA-400-1BDR</td>
+                                <td>98</td>
+                                <td>4.230.000 VNĐ</td>
+                                <td><button class="detail">Chi Tiết<span class="las la-arrow-right"></span>
+                            </tr>
+                            <tr>
+                                <td><span class="status pink"></span>WS003</td>
+                                <td>Daniel Wellington DW00100148</td>
+                                <td>72</td>
+                                <td>4.600.000 VNĐ</td>
+                                <td><button class="detail">Chi Tiết<span class="las la-arrow-right"></span>
+                            </tr>
+                            <tr>
+                                <td class="card-header-seeall" colspan="4">
+                                    <button class="detail">@Html.ActionLink("Xem Tất Cả", "Index", "Product")</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+            </div>
+        </div>
+
+        <div>
+            <div class="card-single">
+                <div>
+                    <h1>54</h1>
+                    <span>Khách Hàng</span>
+                </div>
+                <div>
+                    <span class="las la-users"></span>
+                </div>
+
+            </div>
+
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="color-table-if" width="100%">
+                        <thead>
+                            <tr>
+                                <td>Họ Và Tên</td>
+                                <td>Số Điện Thoại</td>
+                                <td>Địa Chỉ</td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td> <span class="status purple"></span> Nguyễn Thanh An</td>
+                                <td>0936788172</td>
+                                <td><Address>170/21-Bùi Đình Túy</Address></td>
+                                <td><button class="detail">Chi Tiết<span class="las la-arrow-right"></span>
+                            </tr>
+                            <tr>
+                                <td><span class="status pink"></span>Hà Minh Thông</td>
+                                <td>0946788281</td>
+                                <td><address>170/21-Bùi Đình Túy</address></td>
+                                <td><button class="detail">Chi Tiết<span class="las la-arrow-right"></span>
+                            </tr>
+                            <tr>
+                                <td><span class="status orange"></span>Lê Văn Hùng</td>
+                                <td>09347888123</td>
+                                <td><address>Dương Quảng Hàm</address></td>
+                                <td><button class="detail">Chi Tiết<span class="las la-arrow-right"></span>
+                            </tr>
+                            <tr>
+                                <td class="card-header-seeall" colspan="4">
+                                    <button class="detail">@Html.ActionLink("Xem Tất Cả", "Index", "Customer")</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+            </div>
+        </div>
+
+        <div>
+            <div class="card-single">
+                <div>
+                    <h1>124</h1>
+                    <span>Đơn Hàng</span>
+                </div>
+                <div>
+                    <span class="las la-shopping-bag"></span>
+                </div>
+            </div>
+
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="color-table-if" width="100%">
+                        <thead>
+                            <tr>
+                                <td>Mã đơn hàng</td>
+                                <td>Sản phẩm</td>
+                                <td>Số Lượng</td>
+                                <td>Ngày đặt hàng</td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td> <span class="status purple"></span>OD001</td>
+                                <td>
+                                    Casio AE-1200WHD-1AVDF</br>
+                                    G-Shock GA-400-1BDR
+                                </td>
+                                <td class="stylesl">
+                                    2</br>
+                                    3
+                                </td>
+                                <td>12/07/2020</td>
+                                <td>
+                                    <button class="detail">
+                                        Chi Tiết<span class="las la-arrow-right">
+
+                                        </span>
+                                    </button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td> <span class="status purple"></span>OD002</td>
+                                <td>
+                                    Casio AE-1200WHD-1AVDF</br>
+                                    Daniel Wellington DW00100148
+                                </td>
+                                <td class="stylesl">
+                                    2</br>
+                                    3
+                                </td>
+                                <td>17/04/2020</td>
+                                <td><button class="detail">Chi Tiết<span class="las la-arrow-right"></span>
+                            </tr>
+                            <tr>
+                                <td> <span class="status purple"></span>OD003</td>
+                                <td>
+                                    Daniel Wellington DW00100148</br>
+                                    G-Shock GA-400-1BDR
+                                </td>
+                                <td class="stylesl">
+                                    2</br>
+                                    3
+                                </td>
+                                <td>31/02/2020</td>
+                                <td><button class="detail">Chi Tiết<span class="las la-arrow-right"></span>
+                            </tr>
+                            <tr>
+                                <td class="card-header-seeall">
+                                    <button class="detail">@Html.ActionLink("Xem Tất Cả", "Index", "Oder")</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+
+
+</main>
+</div>
+
