@@ -14,8 +14,8 @@ namespace WatchStore25.Models
     
     public partial class ACCOUNT
     {
-        public string userName { get; set; }
-        public string passWord { get; set; }
+        public string Email { get; set; }
+        public string Password { get; set; }
         public bool root { get; set; }
         public Nullable<int> idCustomer { get; set; }
     

@@ -8,8 +8,30 @@ namespace WatchStore25.Controllers
 {
     public class HomeController : Controller
     {
-        // GET: Home
-        public ActionResult TrangChu()
+        public ActionResult Index()
+        {
+            return View();
+        }
+
+        public ActionResult ProductsMan()
+        {
+
+            return View();
+        }
+
+        public ActionResult ProductsWoman()
+        {
+
+
+            return View();
+        }
+
+        public ActionResult ProductDetail()
+        {
+            return View();
+        }
+
+        public ActionResult Cart()
         {
             return View();
         }
