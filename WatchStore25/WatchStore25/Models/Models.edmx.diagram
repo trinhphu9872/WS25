@@ -27,6 +27,7 @@
         <AssociationConnector Association="WS25Model.FK_PRODUCT_TYPE_PRODUCT" ManuallyRouted="false" />
         <AssociationConnector Association="WS25Model.FK_RATE_PRODUCT_PRODUCT" ManuallyRouted="false" />
         <AssociationConnector Association="WS25Model.AspNetUserRoles" ManuallyRouted="false" />
+        <AssociationConnector Association="WS25Model.FK_DETAIL_ORDER_PRODUCT" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

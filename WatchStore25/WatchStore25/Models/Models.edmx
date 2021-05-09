@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="WS25Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="WS25Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="__MigrationHistory">
           <Key>
             <PropertyRef Name="MigrationId" />
@@ -98,6 +98,7 @@
           <Property Name="amount" Type="money" />
           <Property Name="discount" Type="int" />
           <Property Name="totalAmount" Type="money" />
+          <Property Name="idProduct" Type="int" />
         </EntityType>
         <EntityType Name="ORDER_PRODUCT">
           <Key>
@@ -135,7 +136,7 @@
           <Property Name="idCustomer" Type="int" />
           <Property Name="detailRate" Type="nvarchar(max)" />
           <Property Name="nameCustomer" Type="nvarchar" MaxLength="100" />
-          <Property Name="levelRate" Type="int" />
+          <Property Name="levelRate" Type="float" />
         </EntityType>
         <EntityType Name="sysdiagrams">
           <Key>
@@ -219,6 +220,18 @@
             </Principal>
             <Dependent Role="DETAIL_ORDER">
               <PropertyRef Name="idOrderProduct" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DETAIL_ORDER_PRODUCT">
+          <End Role="PRODUCT" Type="Self.PRODUCT" Multiplicity="0..1" />
+          <End Role="DETAIL_ORDER" Type="Self.DETAIL_ORDER" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PRODUCT">
+              <PropertyRef Name="idProduct" />
+            </Principal>
+            <Dependent Role="DETAIL_ORDER">
+              <PropertyRef Name="idProduct" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -317,6 +330,10 @@
             <End Role="ORDER_PRODUCT" EntitySet="ORDER_PRODUCT" />
             <End Role="DETAIL_ORDER" EntitySet="DETAIL_ORDER" />
           </AssociationSet>
+          <AssociationSet Name="FK_DETAIL_ORDER_PRODUCT" Association="Self.FK_DETAIL_ORDER_PRODUCT">
+            <End Role="PRODUCT" EntitySet="PRODUCT" />
+            <End Role="DETAIL_ORDER" EntitySet="DETAIL_ORDER" />
+          </AssociationSet>
           <AssociationSet Name="FK_ORDER_PRODUCT_CUSTOMER" Association="Self.FK_ORDER_PRODUCT_CUSTOMER">
             <End Role="CUSTOMER" EntitySet="CUSTOMER" />
             <End Role="ORDER_PRODUCT" EntitySet="ORDER_PRODUCT" />
@@ -338,8 +355,7 @@
             <End Role="ACCOUNT" EntitySet="ACCOUNT" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="WS25Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -439,6 +455,8 @@
           <Property Name="discount" Type="Int32" />
           <Property Name="totalAmount" Type="Decimal" Precision="19" Scale="4" />
           <NavigationProperty Name="ORDER_PRODUCT" Relationship="Self.FK_DETAIL_ORDER_ORDER_PRODUCT" FromRole="DETAIL_ORDER" ToRole="ORDER_PRODUCT" />
+          <Property Name="idProduct" Type="Int32" />
+          <NavigationProperty Name="PRODUCT" Relationship="WS25Model.FK_DETAIL_ORDER_PRODUCT" FromRole="DETAIL_ORDER" ToRole="PRODUCT" />
         </EntityType>
         <EntityType Name="ORDER_PRODUCT">
           <Key>
@@ -470,6 +488,7 @@
           <Property Name="tax" Type="Int32" />
           <NavigationProperty Name="TYPE_PRODUCT" Relationship="Self.FK_PRODUCT_TYPE_PRODUCT" FromRole="PRODUCT" ToRole="TYPE_PRODUCT" />
           <NavigationProperty Name="RATE_PRODUCT" Relationship="Self.FK_RATE_PRODUCT_PRODUCT" FromRole="PRODUCT" ToRole="RATE_PRODUCT" />
+          <NavigationProperty Name="DETAIL_ORDER" Relationship="WS25Model.FK_DETAIL_ORDER_PRODUCT" FromRole="PRODUCT" ToRole="DETAIL_ORDER" />
         </EntityType>
         <EntityType Name="RATE_PRODUCT">
           <Key>
@@ -656,7 +675,23 @@
             <End Role="AspNetRoles" EntitySet="AspNetRoles" />
             <End Role="AspNetUsers" EntitySet="AspNetUsers" />
           </AssociationSet>
+          <AssociationSet Name="FK_DETAIL_ORDER_PRODUCT" Association="WS25Model.FK_DETAIL_ORDER_PRODUCT">
+            <End Role="PRODUCT" EntitySet="PRODUCTs" />
+            <End Role="DETAIL_ORDER" EntitySet="DETAIL_ORDER" />
+          </AssociationSet>
         </EntityContainer>
+        <Association Name="FK_DETAIL_ORDER_PRODUCT">
+          <End Type="WS25Model.PRODUCT" Role="PRODUCT" Multiplicity="0..1" />
+          <End Type="WS25Model.DETAIL_ORDER" Role="DETAIL_ORDER" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PRODUCT">
+              <PropertyRef Name="idProduct" />
+            </Principal>
+            <Dependent Role="DETAIL_ORDER">
+              <PropertyRef Name="idProduct" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -744,6 +779,7 @@
           <EntitySetMapping Name="DETAIL_ORDER">
             <EntityTypeMapping TypeName="WS25Model.DETAIL_ORDER">
               <MappingFragment StoreEntitySet="DETAIL_ORDER">
+                <ScalarProperty Name="idProduct" ColumnName="idProduct" />
                 <ScalarProperty Name="idDetailOrder" ColumnName="idDetailOrder" />
                 <ScalarProperty Name="idOrderProduct" ColumnName="idOrderProduct" />
                 <ScalarProperty Name="detail" ColumnName="detail" />

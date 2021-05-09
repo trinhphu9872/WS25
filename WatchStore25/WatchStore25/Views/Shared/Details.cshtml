@@ -1,16 +1,13 @@
-﻿@using WatchStore25.Models
-@using System.Globalization;
-
+﻿
 @{
     ViewBag.Title = "Chi Tiết Sản Phẩm";
-    Layout = "~/Views/Shared/_Layout1.cshtml";
 }
 
 <!-----------------single product details----------->
 <div class="small-container single-product">
     <div class="row">
         <div class="col-2">
-            <img src=@Url.Content("~/Content/Images/" + Model.img) width="100%" id="ProductImg">
+            <img src=@Url.Content("~/Content/Images/SanPham1.png") width="100%" id="ProductImg">
             <div class="small-img-row">
                 <div class="small-img-col">
                     <img src=@Url.Content("~/Content/Images/SanPham1.png") width="100%" class="small-img">
@@ -25,12 +22,12 @@
                     <img src=@Url.Content("~/Content/Images/SanPham1-3.png") width="100%" class="small-img">
                 </div>
             </div>
-        </div>
 
+        </div>
         <div class="col-2">
-            <p>Trang chủ / Đồng hồ nam / @Model.name</p>
-            <h1>@Model.name</h1>
-            <h4>@string.Format(new CultureInfo("vi-VN"), "{0:#,## VNĐ}", Model.amount)</h4>
+            <p>Trang chủ / Đồng hồ nam / Casio AE-1200WHD-1AVDF – Nam – Kính Nhựa – Quartz (Pin) – Dây Kim Loại</p>
+            <h1>Casio AE-1200WHD-1AVDF – Nam – Kính Nhựa – Quartz (Pin) – Dây Kim Loại</h1>
+            <h4>1.246.000đ</h4>
             <select>
                 <option>Chọn màu</option>
                 <option>Đen</option>
@@ -41,7 +38,11 @@
             <a href="" class="btn">Thêm vào giỏ</a>
             <h3>Chi tiết sản phẩm <i class="fa fa-indent"></i></h3>
             <br>
-            <p>@Model.detail</p>
+            <p>
+                Đồng hồ nam Casio AE1200WHD có mặt đồng hồ vuông to với phong cách thể thao,
+                mặt số điện tử với những tính năng hiện đại tiện dụng, kết hợp với dây đeo
+                bằng kim loại đem lại vẻ mạnh mẽ cá tính dành cho phái nam.
+            </p>
         </div>
     </div>
 </div>
@@ -161,4 +162,5 @@
         </div>
     </div>
 </div>
+
 

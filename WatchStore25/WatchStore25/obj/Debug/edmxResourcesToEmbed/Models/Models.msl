@@ -82,6 +82,7 @@
     <EntitySetMapping Name="DETAIL_ORDER">
       <EntityTypeMapping TypeName="WS25Model.DETAIL_ORDER">
         <MappingFragment StoreEntitySet="DETAIL_ORDER">
+          <ScalarProperty Name="idProduct" ColumnName="idProduct" />
           <ScalarProperty Name="idDetailOrder" ColumnName="idDetailOrder" />
           <ScalarProperty Name="idOrderProduct" ColumnName="idOrderProduct" />
           <ScalarProperty Name="detail" ColumnName="detail" />

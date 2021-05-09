@@ -96,6 +96,8 @@
     <Property Name="discount" Type="Int32" />
     <Property Name="totalAmount" Type="Decimal" Precision="19" Scale="4" />
     <NavigationProperty Name="ORDER_PRODUCT" Relationship="Self.FK_DETAIL_ORDER_ORDER_PRODUCT" FromRole="DETAIL_ORDER" ToRole="ORDER_PRODUCT" />
+    <Property Name="idProduct" Type="Int32" />
+    <NavigationProperty Name="PRODUCT" Relationship="WS25Model.FK_DETAIL_ORDER_PRODUCT" FromRole="DETAIL_ORDER" ToRole="PRODUCT" />
   </EntityType>
   <EntityType Name="ORDER_PRODUCT">
     <Key>
@@ -127,6 +129,7 @@
     <Property Name="tax" Type="Int32" />
     <NavigationProperty Name="TYPE_PRODUCT" Relationship="Self.FK_PRODUCT_TYPE_PRODUCT" FromRole="PRODUCT" ToRole="TYPE_PRODUCT" />
     <NavigationProperty Name="RATE_PRODUCT" Relationship="Self.FK_RATE_PRODUCT_PRODUCT" FromRole="PRODUCT" ToRole="RATE_PRODUCT" />
+    <NavigationProperty Name="DETAIL_ORDER" Relationship="WS25Model.FK_DETAIL_ORDER_PRODUCT" FromRole="PRODUCT" ToRole="DETAIL_ORDER" />
   </EntityType>
   <EntityType Name="RATE_PRODUCT">
     <Key>
@@ -313,5 +316,21 @@
       <End Role="AspNetRoles" EntitySet="AspNetRoles" />
       <End Role="AspNetUsers" EntitySet="AspNetUsers" />
     </AssociationSet>
+    <AssociationSet Name="FK_DETAIL_ORDER_PRODUCT" Association="WS25Model.FK_DETAIL_ORDER_PRODUCT">
+      <End Role="PRODUCT" EntitySet="PRODUCTs" />
+      <End Role="DETAIL_ORDER" EntitySet="DETAIL_ORDER" />
+    </AssociationSet>
   </EntityContainer>
+  <Association Name="FK_DETAIL_ORDER_PRODUCT">
+    <End Type="WS25Model.PRODUCT" Role="PRODUCT" Multiplicity="0..1" />
+    <End Type="WS25Model.DETAIL_ORDER" Role="DETAIL_ORDER" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PRODUCT">
+        <PropertyRef Name="idProduct" />
+      </Principal>
+      <Dependent Role="DETAIL_ORDER">
+        <PropertyRef Name="idProduct" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
 </Schema>

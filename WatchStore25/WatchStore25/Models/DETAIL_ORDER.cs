@@ -21,7 +21,9 @@ namespace WatchStore25.Models
         public Nullable<decimal> amount { get; set; }
         public Nullable<int> discount { get; set; }
         public Nullable<decimal> totalAmount { get; set; }
+        public Nullable<int> idProduct { get; set; }
     
         public virtual ORDER_PRODUCT ORDER_PRODUCT { get; set; }
+        public virtual PRODUCT PRODUCT { get; set; }
     }
 }

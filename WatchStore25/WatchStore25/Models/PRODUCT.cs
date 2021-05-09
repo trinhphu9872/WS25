@@ -18,6 +18,7 @@ namespace WatchStore25.Models
         public PRODUCT()
         {
             this.RATE_PRODUCT = new HashSet<RATE_PRODUCT>();
+            this.DETAIL_ORDER = new HashSet<DETAIL_ORDER>();
         }
     
         public int idProduct { get; set; }
@@ -33,5 +34,7 @@ namespace WatchStore25.Models
         public virtual TYPE_PRODUCT TYPE_PRODUCT { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<RATE_PRODUCT> RATE_PRODUCT { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<DETAIL_ORDER> DETAIL_ORDER { get; set; }
     }
 }

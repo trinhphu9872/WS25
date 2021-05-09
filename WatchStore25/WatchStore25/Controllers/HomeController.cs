@@ -1,13 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using WatchStore25.Models;
 
 namespace WatchStore25.Controllers
 {
     public class HomeController : Controller
     {
+        private WS25Entities db = new WS25Entities();
+
         public ActionResult Index()
         {
             return View();
@@ -15,20 +19,27 @@ namespace WatchStore25.Controllers
 
         public ActionResult ProductsMan()
         {
-
-            return View();
+            return View(db.PRODUCTs);
         }
 
         public ActionResult ProductsWoman()
         {
-
-
-            return View();
+            return View(db.PRODUCTs);
         }
 
-        public ActionResult ProductDetail()
+        //GET: Products/Details/5
+        public ActionResult ProductDetail(int? id)
         {
-            return View();
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            PRODUCT product = db.PRODUCTs.Find(id);
+            if (product == null)
+            {
+                return HttpNotFound();
+            }
+            return View(product);
         }
 
         public ActionResult Cart()
