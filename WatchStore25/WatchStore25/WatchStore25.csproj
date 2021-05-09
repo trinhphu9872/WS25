@@ -282,6 +282,7 @@
     <Content Include="Content\ImgAdmin\logo.png" />
     <Content Include="Content\ImgAdmin\sp1.jpg" />
     <Content Include="Content\ImgAdmin\sp2.jpg" />
+    <Content Include="Content\JSAdmin\Main.js" />
     <Content Include="Content\style.css" />
     <Content Include="Content\StyleAdmin\styleAdmin.css" />
     <Content Include="favicon.ico" />
@@ -365,7 +366,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Content\JSAdmin\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
