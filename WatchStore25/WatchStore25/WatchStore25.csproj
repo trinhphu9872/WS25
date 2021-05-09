@@ -170,6 +170,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Global.asax.cs">
@@ -276,7 +277,13 @@
     <Content Include="Content\Images\SanPham7.png" />
     <Content Include="Content\Images\SanPham8.png" />
     <Content Include="Content\Images\SanPham9.png" />
+    <Content Include="Content\ImgAdmin\2.jpg" />
+    <Content Include="Content\ImgAdmin\icon.png" />
+    <Content Include="Content\ImgAdmin\logo.png" />
+    <Content Include="Content\ImgAdmin\sp1.jpg" />
+    <Content Include="Content\ImgAdmin\sp2.jpg" />
     <Content Include="Content\style.css" />
+    <Content Include="Content\StyleAdmin\styleAdmin.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -348,9 +355,17 @@
     <Content Include="Views\Shared\_Layout1.cshtml" />
     <Content Include="Views\Home\ProductDetail.cshtml" />
     <Content Include="Views\Home\Cart.cshtml" />
+    <Content Include="Views\Admin\HomeAdmin.cshtml" />
+    <Content Include="Views\Admin\CustomerManager.cshtml" />
+    <Content Include="Views\Admin\OrderManager.cshtml" />
+    <Content Include="Views\Admin\ProductManager.cshtml" />
+    <Content Include="Views\Admin\AddNewProductManager.cshtml" />
+    <Content Include="Views\Shared\AdminLayout\LayoutAdmin.cshtml" />
+    <Content Include="Views\Shared\Event_.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Content\JSAdmin\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
