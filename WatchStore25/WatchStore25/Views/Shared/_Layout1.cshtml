@@ -6,8 +6,8 @@
     <meta charset='utf-8'>
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <title>@ViewBag.Title - WS25 | WATCH STORE 25</title>
-    <link rel="shortcut icon" type="image/png" href="~/Content/Images/icon.png">
-    <link rel="stylesheet" href='~/Content/style.css'>
+    <link rel="shortcut icon" type="image/png" href="@Url.Content("~/Content/Images/icon.png")">
+    <link rel="stylesheet" href="@Url.Content("~/Content/style.css")">
     <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     @Scripts.Render("~/bundles/modernizr")
@@ -16,7 +16,7 @@
     <div class="container">
         <div class="navbar">
             <div class="logo">
-                <a href="@Url.Action("Index","Home")"><img src="~/Content/Images/logo.png" width="125px"></a>
+                <a href="@Url.Action("Index","Home")"><img src="@Url.Content("~/Content/Images/logo.png")" width="125px"></a>
             </div>
             <div class="search-wrapper">
                 <span class="las la-search"></span>
@@ -29,10 +29,11 @@
                         <li>@Html.ActionLink("Nữ", "ProductsWoman", "Home")</li>
                         <li>@Html.ActionLink("Tài Khoản", "TaiKhoan", "Account")</li>
                         <li>@Html.Partial("_LoginPartial")</li>
-                </ul></b>
+                    </b>
+                </ul>
             </nav>
-            <a href="@Url.Action("Cart","Home")"><img src="~/Content/Images/cart.png" width="30px" height="30px"></a>
-            <img src="~/Content/Images/menu.png" class="menu-icon"
+            <a href="@Url.Action("Cart","Home")"><img src="@Url.Content("~/Content/Images/cart.png")" width="30px" height="30px"></a>
+            <img src="@Url.Content("~/Content/Images/menu.png")" class="menu-icon"
                  onclick="menutoggle()">
         </div>
     </div>

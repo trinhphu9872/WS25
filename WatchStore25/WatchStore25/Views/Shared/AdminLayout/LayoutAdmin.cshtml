@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-sacle=1, maximun-scale=1">
     <title>WS25 Admin</title>
-    <link rel="shortcut icon" type="image/png" href="~/Content/ImgAdmin/icon.png">
+    <link rel="shortcut icon" type="image/png" href="@Url.Content("~/Content/ImgAdmin/icon.png")">
     <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css" />
     <link rel="stylesheet"
           href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
@@ -14,7 +14,7 @@
           crossorigin="anonymous" />
     <link rel="stylesheet"
           href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
-    <link href="~/Content/StyleAdmin/styleAdmin.css" rel="stylesheet" />
+    <link href="@Url.Content("~/Content/StyleAdmin/styleAdmin.css")" rel="stylesheet" />
 </head>
 <body>
     @RenderBody()
@@ -22,20 +22,20 @@
     <div class="sidebar">
         <div class="sidebar-brand">
             <div class="logo">
-                <a href=@Url.Action("HomeAdmin", "Admin")><img src="~/Content/ImgAdmin/logo.png" width="130px"></a>
+                <a href=@Url.Action("HomeAdmin", "Admin")><img src="@Url.Content("~/Content/ImgAdmin/logo.png")" width="130px"></a>
             </div>
 
         </div>
         <div class="sidebar-menu">
             <ul>
-                <li ">
+                <li>
 
                     <div>@Html.ActionLink("DashBoard", "HomeAdmin", "Admin")</div>
 
                 </li>
 
                 <li>
-                    <div>@Html.ActionLink("Sản Phẩm", "ProductManager", "Admin")</div">
+                    <div>@Html.ActionLink("Sản Phẩm", "ProductManager", "Admin")</div>
                 </li>
 
                 <li>
@@ -62,14 +62,14 @@
                 <input type="search" placeholder="Search here" />
             </div>
             <div class="user-wrapper">
-                <img class="animate__headShake" src="~/Content/ImgAdmin/2.jpg" width="30px" height="30px" alt="">
+                <img class="animate__headShake" src="@Url.Content("~/Content/ImgAdmin/2.jpg")" width="30px" height="30px" alt="search">
                 <div>
                     <h4>Team 01</h4>
                     <small>Super Admin</small>
                 </div>
             </div>
         </header>
-
+</div>
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
                 integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
                 crossorigin="anonymous"></script>
@@ -79,9 +79,6 @@
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
                 integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
                 crossorigin="anonymous"></script>
-      
-
-
 </body>
 </html>
 
