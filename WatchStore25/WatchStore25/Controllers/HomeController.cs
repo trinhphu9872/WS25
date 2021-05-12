@@ -41,7 +41,7 @@ namespace WatchStore25.Controllers
             }
             return View(product);
         }
-
+        //Cart
         public ActionResult Cart()
         {
             return View();
