@@ -17,6 +17,13 @@ namespace WatchStore25.Controllers
             return View();
         }
 
+        public ActionResult Search(string keyword)
+        {
+            var model = db.PRODUCTs.ToList();
+            model = model.Where(p => p.name.ToLower().Contains(keyword)).ToList();
+            ViewBag.keyword = keyword;
+            return View(model);
+        }
         public ActionResult ProductsMan()
         {
             return View(db.PRODUCTs);

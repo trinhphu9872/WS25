@@ -363,6 +363,7 @@
     <Content Include="Views\Admin\AddNewProductManager.cshtml" />
     <Content Include="Views\Shared\AdminLayout\LayoutAdmin.cshtml" />
     <Content Include="Views\Shared\Event_.cshtml" />
+    <Content Include="Views\Home\Search.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

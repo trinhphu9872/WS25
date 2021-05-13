@@ -18,16 +18,20 @@
             <div class="logo">
                 <a href="@Url.Action("Index","Home")"><img src="@Url.Content("~/Content/Images/logo.png")" width="125px"></a>
             </div>
-            <div class="search-wrapper">
-                <span class="las la-search"></span>
-                <input type="search" placeholder="Tìm kiếm" />
-            </div>
+            <form action="@Url.Action("Search","Home")" method="get">
+                <div class="search-wrapper">
+                    
+                    <input type="text" name="keyword" placeholder="Tìm kiếm" value="@ViewBag.keyword" />
+                    <span @Url.Action("Search","Home") >
+                        <i class="las la-search"></i>
+                    </span>
+                </div>
+            </form>
             <nav>
                 <ul id="MenuItems">
                     <b>
                         <li>@Html.ActionLink("Nam", "ProductsMan", "Home")</li>
                         <li>@Html.ActionLink("Nữ", "ProductsWoman", "Home")</li>
-                        <li>@Html.ActionLink("Tài Khoản", "TaiKhoan", "Account")</li>
                         <li>@Html.Partial("_LoginPartial")</li>
                     </b>
                 </ul>

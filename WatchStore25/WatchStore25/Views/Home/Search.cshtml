@@ -2,24 +2,20 @@
 @using System.Globalization;
 
 @{
-    ViewBag.Title = "Sản Phẩm Nam";
+    ViewBag.Title = "Tìm kiếm sản phẩm";
     Layout = "~/Views/Shared/_Layout1.cshtml";
 }
 <div class="small-container">
 
     <div class="row row-2">
-        <h2>Tất cả sản phẩm nam</h2>
-        <select>
-            <option>Sắp xếp theo giá giảm dần</option>
-            <option>Sắp xếp theo giá tăng dần</option>
-        </select>
+        <h2>Kết quả tìm kiếm cho từ khóa <b style="color:red">"@ViewBag.keyword"</b></h2>
     </div>
 
     <div class="row">
         @foreach (var item in Model)
         {
             <div class="col-4">
-                @if (item.idTypeProduct == true)
+                @if( (item.idTypeProduct == true) || (item.idTypeProduct == false))
                 {
                     <a href="@Url.Action("ProductDetail","Home", new {id = item.idProduct}, null)"><img src="@Url.Content("~/Content/Images/" + item.img)"></a>
                     <a href="@Url.Action("ProductDetail","Home", new {id = item.idProduct}, null)"><h4>@item.name</h4></a>
@@ -34,12 +30,5 @@
                 }
             </div>
         }
-        <div class="page-btn">
-            <span>1</span>
-            <span>2</span>
-            <span>3</span>
-            <span>4</span>
-            <span>&#8594;</span>
-        </div>
     </div>
 </div>
