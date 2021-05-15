@@ -6,12 +6,25 @@
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <title>@ViewBag.Title - WS25 | WATCH STORE 25</title>
     <link rel="shortcut icon" type="image/png" href="~/Content/Images/icon.png">
-    <link rel="stylesheet" href='~/Content/style.css'>
+    <link href="~/Content/style.css" rel="stylesheet" />
+    <link href="@Url.Content("~/Content/style.css")" rel="stylesheet" />
     <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    @*@Styles.Render("~/Content/css")*@
+    @*    @Styles.Render("~/Content/css")*@
     @Scripts.Render("~/bundles/modernizr")
-
+            <style>
+                .nava a {
+                    font-size: 16px;
+                 
+                }
+                .nava a:hover {
+                    font-size: 17px;
+                }
+                .cartcss:hover {
+                   font-size:20px;
+                    
+                }
+        </style>
 </head>
 <body>
     <div class="header">
@@ -23,14 +36,14 @@
                 <nav>
                     <ul id="MenuItems">
                         <b>
-                            <li>@Html.ActionLink("Nam", "ProductsMan", "Home")</li>
-                            <li>@Html.ActionLink("Nữ", "ProductsWoman", "Home")</li>
-                            <li>@Html.ActionLink("Tài Khoản", "TaiKhoan", "Account")</li>
-                            <li>@Html.Partial("_LoginPartial")</li>
+                            <li class="nava">@Html.ActionLink("Nam", "ProductsMan", "Home")</li>
+                            <li class="nava">@Html.ActionLink("Nữ", "ProductsWoman", "Home")</li>
+                            <li class="nava">@Html.ActionLink("Tài Khoản", "TaiKhoan", "Account")</li>
+                            <li class="nava">@Html.Partial("_LoginPartial")</li>
 
                     </ul></b>
                 </nav>
-                <a href="@Url.Action("Cart","Home")"><img src="~/Content/Images/cart.png" width="30px" height="30px"></a>
+                <a class="cartcss" href="@Url.Action("Cart","Home")"><img src="~/Content/Images/cart.png" width="30px" height="30px"></a>
                 <img src="~/Content/Images/menu.png" class="menu-icon"
                      onclick="menutoggle()">
             </div>

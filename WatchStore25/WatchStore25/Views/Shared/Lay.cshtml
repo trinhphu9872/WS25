@@ -1,0 +1,202 @@
+﻿
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-sacle=1, maximun-scale=1">
+    <title>WS25 Admin</title>
+
+    <link rel="shortcut icon" type="image/png" href="~/Content/ImgAdmin/icon.png">
+    <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css" />
+    <link rel="stylesheet"
+          href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+          crossorigin="anonymous" />
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+
+      <style>
+          * {
+              margin: 0;
+              padding: 0;
+              box-sizing: border-box;
+          }
+
+          .navbar {
+              display: flex;
+              align-items: center;
+              padding: 20px 10px  ;
+          }
+
+    
+              nav ul {
+                  display: inline-block;
+                  list-style-type: none;
+              }
+
+                  nav ul li {
+                      display: inline-block;
+                      margin-right: 20px;
+                      font-size: 16px;
+                  }
+
+          a {
+              text-decoration: none;
+              color: rgb(5, 5, 5);
+          }
+
+              .header .row {
+                  margin-top: 70px;
+              }
+
+          .categories {
+              margin: 70px 0;
+          }
+
+   
+
+          .small-container {
+              max-width: 1080px;
+              margin: auto;
+              padding-left: 25px;
+              padding-right: 25px;
+          }
+
+
+
+
+          .title {
+              text-align: center;
+              margin: 0 auto 80px;
+              position: relative;
+              line-height: 60px;
+              color: #555;
+          }
+
+              .title::after {
+                  content: '';
+                  background: #ff523b;
+                  width: 80px;
+                  height: 5px;
+                  border-radius: 5px;
+                  position: absolute;
+                  bottom: 0;
+                  left: 50%;
+                  transform: translateX(-50%);
+              }
+          .menu-icon {
+              width: 28px;
+              margin-left: 20px;
+              display: none;
+          }
+
+            .bg-footer {
+                background-color: black;
+                color: white
+            }
+            pre {
+                color: white;
+            }
+
+            .img-logo {
+                background-repeat: no-repeat;
+                margin-top:-20px;
+                width: 150px;
+                height: 200px;
+            }
+            .col-3{
+                margin: 20px 0 ;
+            }
+        </style>
+</head>
+<body>
+
+    <div class="header">
+        <div class="container">
+            <div class="navbar">
+                <div class="logo">
+                    <a href="@Url.Action("Index","Home")"><img src="~/Content/Images/logo.png" width="120px">
+                </div>
+                <nav class="ml-5 ">
+                    <ul id="MenuItems " >
+                        <b>
+                            <li class="nava">@Html.ActionLink("Nam", "ProductsMan", "Home")</li>
+                            <li class="nava">@Html.ActionLink("Nữ", "ProductsWoman", "Home")</li>
+                            <li class="nava">@Html.ActionLink("Tài Khoản", "TaiKhoan", "Account")</li>
+                            <li class="nava">@Html.Partial("_LoginPartial")</li>
+                            <li class="nava">
+                                <a class="cartcss" href="@Url.Action("Cart","Home")"><img src="~/Content/Images/cart.png" width="30px" height="30px"></a>
+                                <img src="~/Content/Images/menu.png" class="menu-icon"
+                                     onclick="menutoggle()">
+                            </li>
+                    </ul></b>
+                </nav>
+           
+            </div>
+           
+        </div>
+    </div>
+    <div>
+        @RenderBody()
+        <div class="footer bg-footer py-4">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-3 text-center">
+                        <h3>Gọi theo hotline:</h3>
+                        <p>19001010</p>
+                        <pre>69/68 Đặng Thùy Trâm, P. 13 
+Q. Bình Thạnh, TP. HCM
+<b>Số điện thoại: </b>+84 27 6969 6969
+<b>Địa chỉ email: </b>lienhe@ws25.com
+              </pre>
+                    </div>
+                    <div class="col-3 text-center">
+                        <img class="img-logo "
+                             src=@Url.Content("~/Content/Images/logo.png") />
+                    </div>
+                    <div class="col-3">
+                        <h3 class="text-center ">Hướng dẫn</h3>
+                        <ul class="text-center" type="none">
+                            <li>Thông tin liên hệ</li>
+                            <li>Hỏi đáp - Góp ý</li>
+                            <li>Chính sách đổi hàng</li>
+                            <li>Chính sách bảo hành</li>
+                        </ul>
+                    </div>
+                    <div class="col-3 text-center">
+                        <h3>Theo dõi chúng tôi</h3>
+                        <ul type="none" class="text-center">
+                            <li>Facebook</li>
+                            <li>Instagram</li>
+                            <li>Youtube</li>
+                            <li>Twitter</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="row border-top">
+                    <div class="col-12 text-center">
+                        <p class="copyright">Copyright 2021 - WS25 Team</p>
+                        <p class="copyright">Góp ý & Khiếu nại : ceo@ws25.com</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+                integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+                crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+                integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+                crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+                integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+                crossorigin="anonymous"></script>
+
+
+
+</body>
+</html>
+

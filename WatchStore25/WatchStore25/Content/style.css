@@ -17,14 +17,20 @@ nav ul{
     display: inline-block;
     list-style-type: none;
 }
-nav ul li{
-    display: inline-block;
-    margin-right: 20px;
+nav ul li {
+        display: inline-block;
+        margin-right: 20px;
+        font-size: 16px;
+}
+
+.nava a {
+    font-size: 16px;
 }
 a{
     text-decoration: none;
     color: rgb(5, 5, 5);
 }
+
 p{
     color: #555;
 }
@@ -417,7 +423,7 @@ th:last-child{
 }
 .form-container{
     background: #fff;
-    width: 315px;
+    width: 365px;
     height: 400px;
     text-align: center;
     margin: auto;
