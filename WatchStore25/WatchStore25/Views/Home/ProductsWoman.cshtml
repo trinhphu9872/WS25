@@ -18,21 +18,21 @@
     <div class="row">
         @foreach (var item in Model)
         {
-            <div class="col-4">
-                @if (item.idTypeProduct == false)
-                {
-                    <a href="@Url.Action("ProductDetail","Home", new {id = item.idProduct}, null)"><img src="@Url.Content("~/Content/Images/" + item.img)"></a>
-                    <a href="@Url.Action("ProductDetail","Home", new {id = item.idProduct}, null)"><h4>@item.name</h4></a>
-                    <div class="ratting">
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star-o"></i>
-                    </div>
-                    <p><h3>@string.Format(new CultureInfo("vi-VN"), "{0:#,## VNĐ}", item.amount)</h3></p>
-                }
-            </div>
+        <div class="col-4">
+            @if (item.idTypeProduct == false)
+            {
+                <a href="@Url.Action("ProductDetail","Home", new {id = item.idProduct}, null)"><img src="@Url.Content("~/Content/Images/" + item.img)"></a>
+                <a href="@Url.Action("ProductDetail","Home", new {id = item.idProduct}, null)"><h4>@item.name</h4></a>
+                <div class="ratting">
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star-o"></i>
+                </div>
+                <p><h3>@string.Format(new CultureInfo("vi-VN"), "{0:#,## VNĐ}", item.amount)</h3></p>
+            }
+        </div>
         }
         <div class="page-btn">
             <span>1</span>
