@@ -1,4 +1,4 @@
-﻿
+﻿@using WatchStore25.Models
 @{
     ViewBag.Title = "ProductManager";
     Layout = "~/Views/Shared/AdminLayout/LayoutAdmin.cshtml";
@@ -8,7 +8,8 @@
     <div class="cards1">
         <div class="card-single">
             <div>
-                <h1>79</h1>
+                 
+                <h1>@ViewBag.SL</h1>
                 <span>Products</span>
             </div>
             <div>
@@ -26,66 +27,56 @@
                     <table>
                         <tr>
                             <td class="card-header-seeall">
-                                <button class="detail">@Html.ActionLink("Thêm", "Index", "ProductNew")</button>
+                                <button class="detail">@Html.ActionLink("Thêm", "Index", "PRODUCTs/Create")</button>
                             </td>
                         </tr>
                     </table>
                 </div>
+                
+                <div class="table-chua row">
+                    <div class="col-12">
+                        
+                            <table class="table table-hover">
+                                <thead>
+                                    <!-- Tiêu đề -->
+                                    <tr>
+                                        <th scope="col">Mã Sản Phẩm</th>
+                                        <th scope="col">Tên Sản Phẩm</th>
+                                        <th scope="col">Số Lượng</th>
+                                        <th scope="col">Giá</th>
+                                    </tr>
+                                </thead>
+                                <!-- Chứa thông tiên sản phẩm -->
+                                <tbody>
+                                    @foreach (var item in Model)
+                                    {
+                                        <tr>
 
-                <div class="card-body">
-                    <div class="table-responsive">
-                        <table width="100%">
-                            <thead>
-                                <tr>
-                                    <td>Hình Ảnh</td>
-                                    <td>Mã Sản Phẩm </td>
-                                    <td>Tên Sản Phẩm</td>
-                                    <td>Số Lượng</td>
-                                    <td>Giá</td>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-
-                                    <td class="imgsp"> <img src="~/Content/img/sp1.jpg" /></td>
-                                    <td><span class="status pink"></span>WS001</td>
-                                    <td>Casio AE-1200WHD-1AVDF</td>
-                                    <td>101</td>
-                                    <td>1.246.000 VNĐ</td>
-                                    <td class="fixbutton"><button class="detail">Sửa</button></td>
-                                    <td class="fixbutton"><button class="detail">Xóa</button></td>
-                                </tr>
-                                <tr>
-                                    <td class="imgsp"> <img src="~/Content/img/sp1.jpg" /></td>
-                                    <td><span class="status pink"></span>WS002</td>
-                                    <td>G-Shock GA-400-1BDR</td>
-                                    <td>98</td>
-                                    <td>4.230.000 VNĐ</td>
-                                    <td class="fixbutton"><button class="detail">Sửa</button></td>
-                                    <td class="fixbutton"><button class="detail">Xóa</button></td>
-                                </tr>
-                                <tr>
-                                    <td class="imgsp"><img src="~/Content/img/sp2.jpg" /></td>
-                                    <td><span class="status pink"></span>WS003</td>
-                                    <td>Daniel Wellington DW00100148</td>
-                                    <td>72</td>
-                                    <td>4.600.000 VNĐ</td>
-                                    <td class="fixbutton"><button class="detail">Sửa</button></td>
-                                    <td class="fixbutton"><button class="detail">Xóa</button></td>
-                                </tr>
-                                <tr>
-                                    <td class="card-header-seeall">
-                                        <button>See all <span class="las la-arrow-right"></span></button>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
+                                            <td><span class="status pink"></span>@item.idProduct</td>
+                                            <td>@item.name</td>
+                                            <td>@item.inventory</td>
+                                            <td>@item.amount</td>
+                                            <td class="card-header-seeall"><button>@Html.ActionLink("Sửa", "Edit","PRODUCTs", new { id = item.idProduct  },null)</button></td>
+                                            <td class="card-header-seeall"><button>@Html.ActionLink("Xóa", "Delete","PRODUCTs", new { id = item.idProduct }, null)</button></td>
+                                        </tr>
+                                    }
+                                    </tbody>
+                            </table>
+                        </div>
                     </div>
-
-                </div>
+                <tr>
+                    <td class="card-header-seeall">
+                        <button>See all <span class="las la-arrow-right"></span></button>
+                    </td>
+                </tr>
+                </tbody>
+                </table>
             </div>
 
         </div>
+    </div>
+
+    </div>
     </div>
 
 </main>

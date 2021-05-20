@@ -3,12 +3,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using WatchStore25.Models;
 
 namespace WatchStore25.Controllers
 {
     public class AdminController : Controller
     {
         // GET: Admin
+        public WS25Entities db = new WS25Entities();
+        
         public ActionResult HomeAdmin()
         {
             return View();
@@ -23,13 +26,19 @@ namespace WatchStore25.Controllers
         }
         public ActionResult ProductManager()
         {
-            return View();
+            ViewBag.SL = db.PRODUCTs.Count();
+            return View(db.PRODUCTs);
         }
         public ActionResult AddNewProductManager()
         {
-            return View();
+            var model = db.PRODUCTs.ToList();
+            
+            return View(model);
+
+
         }
 
+        
 
     }
 }

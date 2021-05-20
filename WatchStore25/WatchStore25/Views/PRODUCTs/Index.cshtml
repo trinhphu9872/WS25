@@ -1,0 +1,84 @@
+﻿@model IEnumerable<WatchStore25.Models.PRODUCT>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/AdminLayout/LayoutAdmin.cshtml";
+}
+@Html.Partial("Event_")
+<div class="them text-right">
+    <!-- Button trigger modal -->
+    <button type="button"
+            class="detail"
+            data-toggle="modal"
+            data-target="#addProduct">
+        @Html.ActionLink("Thêm Sản Phẩm", "Create")
+    </button>
+    </div>
+
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.detail)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.status)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.inventory)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.amount)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.img)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.tax)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TYPE_PRODUCT.nameTypeProduct)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.detail)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.status)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.inventory)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.amount)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.img)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.tax)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TYPE_PRODUCT.nameTypeProduct)
+        </td>
+
+
+        <td class="card-header-seeall"><button>@Html.ActionLink("Edit", "Edit", new { id = item.idProduct })</button></td>
+        <td class="card-header-seeall"><button>@Html.ActionLink("Delete", "Delete", new { id = item.idProduct })</button></td>
+        
+
+    </tr>
+        }
+
+    </table>
+

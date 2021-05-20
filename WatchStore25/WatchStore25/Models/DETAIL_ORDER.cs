@@ -15,13 +15,15 @@ namespace WatchStore25.Models
     public partial class DETAIL_ORDER
     {
         public int idDetailOrder { get; set; }
-        public Nullable<int> idOrderProduct { get; set; }
+        public int idOrderProduct { get; set; }
         public string detail { get; set; }
         public Nullable<int> totalProduct { get; set; }
         public Nullable<decimal> amount { get; set; }
         public Nullable<int> discount { get; set; }
         public Nullable<decimal> totalAmount { get; set; }
+        public int idProduct { get; set; }
     
         public virtual ORDER_PRODUCT ORDER_PRODUCT { get; set; }
+        public virtual PRODUCT PRODUCT { get; set; }
     }
 }

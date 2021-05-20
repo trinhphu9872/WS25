@@ -19,7 +19,7 @@ namespace WatchStore25.Models
         public Nullable<int> idCustomer { get; set; }
         public string detailRate { get; set; }
         public string nameCustomer { get; set; }
-        public Nullable<int> levelRate { get; set; }
+        public Nullable<double> levelRate { get; set; }
     
         public virtual CUSTOMER CUSTOMER { get; set; }
         public virtual PRODUCT PRODUCT { get; set; }

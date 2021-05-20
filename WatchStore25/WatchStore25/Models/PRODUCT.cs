@@ -17,6 +17,7 @@ namespace WatchStore25.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public PRODUCT()
         {
+            this.DETAIL_ORDER = new HashSet<DETAIL_ORDER>();
             this.RATE_PRODUCT = new HashSet<RATE_PRODUCT>();
         }
     
@@ -30,6 +31,8 @@ namespace WatchStore25.Models
         public string img { get; set; }
         public Nullable<int> tax { get; set; }
     
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<DETAIL_ORDER> DETAIL_ORDER { get; set; }
         public virtual TYPE_PRODUCT TYPE_PRODUCT { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<RATE_PRODUCT> RATE_PRODUCT { get; set; }

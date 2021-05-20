@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="f4fce278a99a4f06aae2aa2f5514381b" Name="Diagram1">
+        <EntityTypeShape EntityType="CT25Team21Model.C__MigrationHistory" Width="1.5" PointX="9.75" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CT25Team21Model.ACCOUNT" Width="1.5" PointX="3" PointY="14.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="CT25Team21Model.AspNetRole" Width="1.5" PointX="2.75" PointY="10.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="CT25Team21Model.AspNetUserClaim" Width="1.5" PointX="7.25" PointY="9" IsExpanded="true" />
+        <EntityTypeShape EntityType="CT25Team21Model.AspNetUserLogin" Width="1.5" PointX="7.25" PointY="11.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CT25Team21Model.AspNetUser" Width="1.5" PointX="5" PointY="9.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="CT25Team21Model.CUSTOMER" Width="1.5" PointX="0.75" PointY="7.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="CT25Team21Model.DETAIL_ORDER" Width="1.5" PointX="5.25" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CT25Team21Model.ORDER_PRODUCT" Width="1.5" PointX="3" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CT25Team21Model.PRODUCT" Width="1.5" PointX="3" PointY="4.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="CT25Team21Model.RATE_PRODUCT" Width="1.5" PointX="8.25" PointY="5" IsExpanded="true" />
+        <EntityTypeShape EntityType="CT25Team21Model.sysdiagram" Width="1.5" PointX="9.75" PointY="11.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CT25Team21Model.TYPE_PRODUCT" Width="1.5" PointX="0.75" PointY="5.375" IsExpanded="true" />
+        <AssociationConnector Association="CT25Team21Model.FK_TYPE_PRODUCT_CUSTOMER" ManuallyRouted="false" />
+        <AssociationConnector Association="CT25Team21Model.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" ManuallyRouted="false" />
+        <AssociationConnector Association="CT25Team21Model.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" ManuallyRouted="false" />
+        <AssociationConnector Association="CT25Team21Model.FK_ORDER_PRODUCT_CUSTOMER" ManuallyRouted="false" />
+        <AssociationConnector Association="CT25Team21Model.FK_RATE_PRODUCT_CUSTOMER" ManuallyRouted="false" />
+        <AssociationConnector Association="CT25Team21Model.FK_DETAIL_ORDER_ORDER_PRODUCT" ManuallyRouted="false" />
+        <AssociationConnector Association="CT25Team21Model.FK_DETAIL_ORDER_PRODUCT" ManuallyRouted="false" />
+        <AssociationConnector Association="CT25Team21Model.FK_PRODUCT_TYPE_PRODUCT" ManuallyRouted="false" />
+        <AssociationConnector Association="CT25Team21Model.FK_RATE_PRODUCT_PRODUCT" ManuallyRouted="false" />
+        <AssociationConnector Association="CT25Team21Model.AspNetUserRoles" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
