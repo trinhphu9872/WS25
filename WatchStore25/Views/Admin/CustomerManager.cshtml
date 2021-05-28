@@ -1,0 +1,107 @@
+﻿
+@{
+    ViewBag.Title = "CustomerManager";
+    Layout = "~/Views/Shared/AdminLayout/LayoutAdmin.cshtml";
+}
+@Html.Partial("Event_")
+<main>
+    <div class="cards1">
+        <div class="card-single">
+            <div>
+                <h1>54</h1>
+                <span>Customers</span>
+            </div>
+            <div>
+                <span class="las la-users"></span>
+            </div>
+        </div>
+    </div>
+    <div class="recent-grid1">
+        <div class="projects">
+            <div class="card">
+                <div class="card-header">
+                    <h3>Khách Hàng</h3>
+                </div>
+
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table width="100%">
+                            <thead>
+                                <tr>
+                                    <td>Mã Khách Hàng</td>
+                                    <td>Họ Và Tên</td>
+                                    <td>Số Điện Thoại</td>
+                                    <td>Địa Chỉ</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>KH001</td>
+                                    <td> <span class="status purple"></span> Nguyễn Thanh An</td>
+                                    <td>0936788172</td>
+                                    <td><Address>170/21-Bùi Đình Túy</Address></td>
+                                    <td class="fixbutton"><button class="detail">Sửa</button></td>
+                                    <td class="fixbutton"><button class="detail">Xóa</button></td>
+                                </tr>
+                                <tr>
+                                    <td>KH002</td>
+                                    <td><span class="status pink"></span>Hà Minh Thông</td>
+                                    <td>0946788281</td>
+                                    <td><address>170/21-Bùi Đình Túy</address></td>
+                                    <td class="fixbutton"><button class="detail">Sửa</button></td>
+                                    <td class="fixbutton"><button class="detail">Xóa</button></td>
+                                </tr>
+                                <tr>
+                                    <td>KH003</td>
+                                    <td><span class="status orange"></span>Lê Văn Hùng</td>
+                                    <td>09347888123</td>
+                                    <td><address>Dương Quảng Hàm</address></td>
+                                    <td class="fixbutton"><button class="detail">Sửa</button></td>
+                                    <td class="fixbutton"><button class="detail">Xóa</button></td>
+                                </tr>
+                                <tr>
+                                    <td class="card-header-seeall">
+                                        <button>See all <span class="las la-arrow-right"></span>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div class="customers">
+            <div class="card">
+                <div class="card-header">
+                    <h3>Khách Hàng Mới</h3>
+
+                    <button>
+                        See all <span class="las la-arrow-right">
+
+                        </span>
+                    </button>
+                </div>
+
+                <div class="card-body">
+                    <div class="customer">
+                        <div class="info">
+                            <img src="~/Content/img/2.jpg" width="40px" height="40px" alt="">
+                            <div>
+                                <h4>Nguyễn Thanh An</h4>
+                                <small>Sinh Viên VLU</small>
+                            </div>
+                        </div>
+                        <div class="contact">
+                            <span class="las la-user-circle"></span>
+                            <span class="las la-comment"></span>
+                            <span class="las la-phone"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+
+

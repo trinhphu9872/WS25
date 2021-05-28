@@ -1,0 +1,198 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Models.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="__MigrationHistory">
+    <Key>
+      <PropertyRef Name="MigrationId" />
+      <PropertyRef Name="ContextKey" />
+    </Key>
+    <Property Name="MigrationId" Type="nvarchar" MaxLength="150" Nullable="false" />
+    <Property Name="ContextKey" Type="nvarchar" MaxLength="300" Nullable="false" />
+    <Property Name="Model" Type="varbinary(max)" Nullable="false" />
+    <Property Name="ProductVersion" Type="nvarchar" MaxLength="32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="CUSTOMER">
+    <Key>
+      <PropertyRef Name="idCustomer" />
+    </Key>
+    <Property Name="idCustomer" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="name" Type="nvarchar" MaxLength="100" />
+    <Property Name="gender" Type="bit" />
+    <Property Name="phoneNumber" Type="varchar" MaxLength="10" />
+    <Property Name="address" Type="nvarchar" MaxLength="150" />
+    <Property Name="email" Type="nvarchar" MaxLength="60" />
+    <Property Name="dateOfBirth" Type="date" />
+  </EntityType>
+  <EntityType Name="DETAIL_ORDER">
+    <Key>
+      <PropertyRef Name="idDetailOrder" />
+    </Key>
+    <Property Name="idDetailOrder" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="idOrderProduct" Type="int" Nullable="false" />
+    <Property Name="totalProduct" Type="int" />
+    <Property Name="amount" Type="money" />
+    <Property Name="discount" Type="int" />
+    <Property Name="totalAmount" Type="money" />
+    <Property Name="idProduct" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ORDER_PRODUCT">
+    <Key>
+      <PropertyRef Name="idOrderProduct" />
+    </Key>
+    <Property Name="idOrderProduct" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="idCustomer" Type="int" />
+    <Property Name="address" Type="nvarchar" MaxLength="100" />
+    <Property Name="phone" Type="varchar" MaxLength="10" />
+    <Property Name="noteOrder" Type="nvarchar" MaxLength="100" />
+    <Property Name="status" Type="nvarchar" MaxLength="30" />
+    <Property Name="startDate" Type="date" />
+    <Property Name="updateDate" Type="date" />
+  </EntityType>
+  <EntityType Name="PRODUCT">
+    <Key>
+      <PropertyRef Name="idProduct" />
+    </Key>
+    <Property Name="idProduct" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="name" Type="nvarchar(max)" />
+    <Property Name="idTypeProduct" Type="bit" />
+    <Property Name="detail" Type="nvarchar(max)" />
+    <Property Name="status" Type="bit" />
+    <Property Name="inventory" Type="int" />
+    <Property Name="amount" Type="money" />
+    <Property Name="img" Type="nvarchar(max)" />
+    <Property Name="tax" Type="int" />
+  </EntityType>
+  <EntityType Name="RATE_PRODUCT">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="idProduct" Type="int" Nullable="false" />
+    <Property Name="idCustomer" Type="int" />
+    <Property Name="detailRate" Type="nvarchar(max)" />
+    <Property Name="nameCustomer" Type="nvarchar" MaxLength="100" />
+    <Property Name="levelRate" Type="float" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <EntityType Name="TYPE_PRODUCT">
+    <Key>
+      <PropertyRef Name="idTypeProduct" />
+    </Key>
+    <Property Name="idTypeProduct" Type="bit" Nullable="false" />
+    <Property Name="nameTypeProduct" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <Association Name="FK_DETAIL_ORDER_ORDER_PRODUCT">
+    <End Role="ORDER_PRODUCT" Type="Self.ORDER_PRODUCT" Multiplicity="1" />
+    <End Role="DETAIL_ORDER" Type="Self.DETAIL_ORDER" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ORDER_PRODUCT">
+        <PropertyRef Name="idOrderProduct" />
+      </Principal>
+      <Dependent Role="DETAIL_ORDER">
+        <PropertyRef Name="idOrderProduct" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DETAIL_ORDER_PRODUCT">
+    <End Role="PRODUCT" Type="Self.PRODUCT" Multiplicity="1" />
+    <End Role="DETAIL_ORDER" Type="Self.DETAIL_ORDER" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PRODUCT">
+        <PropertyRef Name="idProduct" />
+      </Principal>
+      <Dependent Role="DETAIL_ORDER">
+        <PropertyRef Name="idProduct" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ORDER_PRODUCT_CUSTOMER">
+    <End Role="CUSTOMER" Type="Self.CUSTOMER" Multiplicity="0..1" />
+    <End Role="ORDER_PRODUCT" Type="Self.ORDER_PRODUCT" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CUSTOMER">
+        <PropertyRef Name="idCustomer" />
+      </Principal>
+      <Dependent Role="ORDER_PRODUCT">
+        <PropertyRef Name="idCustomer" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PRODUCT_TYPE_PRODUCT">
+    <End Role="TYPE_PRODUCT" Type="Self.TYPE_PRODUCT" Multiplicity="0..1" />
+    <End Role="PRODUCT" Type="Self.PRODUCT" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TYPE_PRODUCT">
+        <PropertyRef Name="idTypeProduct" />
+      </Principal>
+      <Dependent Role="PRODUCT">
+        <PropertyRef Name="idTypeProduct" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_RATE_PRODUCT_CUSTOMER">
+    <End Role="CUSTOMER" Type="Self.CUSTOMER" Multiplicity="0..1" />
+    <End Role="RATE_PRODUCT" Type="Self.RATE_PRODUCT" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CUSTOMER">
+        <PropertyRef Name="idCustomer" />
+      </Principal>
+      <Dependent Role="RATE_PRODUCT">
+        <PropertyRef Name="idCustomer" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_RATE_PRODUCT_PRODUCT">
+    <End Role="PRODUCT" Type="Self.PRODUCT" Multiplicity="1" />
+    <End Role="RATE_PRODUCT" Type="Self.RATE_PRODUCT" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PRODUCT">
+        <PropertyRef Name="idProduct" />
+      </Principal>
+      <Dependent Role="RATE_PRODUCT">
+        <PropertyRef Name="idProduct" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="ModelsStoreContainer">
+    <EntitySet Name="__MigrationHistory" EntityType="Self.__MigrationHistory" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CUSTOMER" EntityType="Self.CUSTOMER" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DETAIL_ORDER" EntityType="Self.DETAIL_ORDER" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ORDER_PRODUCT" EntityType="Self.ORDER_PRODUCT" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PRODUCT" EntityType="Self.PRODUCT" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="RATE_PRODUCT" EntityType="Self.RATE_PRODUCT" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TYPE_PRODUCT" EntityType="Self.TYPE_PRODUCT" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_DETAIL_ORDER_ORDER_PRODUCT" Association="Self.FK_DETAIL_ORDER_ORDER_PRODUCT">
+      <End Role="ORDER_PRODUCT" EntitySet="ORDER_PRODUCT" />
+      <End Role="DETAIL_ORDER" EntitySet="DETAIL_ORDER" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DETAIL_ORDER_PRODUCT" Association="Self.FK_DETAIL_ORDER_PRODUCT">
+      <End Role="PRODUCT" EntitySet="PRODUCT" />
+      <End Role="DETAIL_ORDER" EntitySet="DETAIL_ORDER" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ORDER_PRODUCT_CUSTOMER" Association="Self.FK_ORDER_PRODUCT_CUSTOMER">
+      <End Role="CUSTOMER" EntitySet="CUSTOMER" />
+      <End Role="ORDER_PRODUCT" EntitySet="ORDER_PRODUCT" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PRODUCT_TYPE_PRODUCT" Association="Self.FK_PRODUCT_TYPE_PRODUCT">
+      <End Role="TYPE_PRODUCT" EntitySet="TYPE_PRODUCT" />
+      <End Role="PRODUCT" EntitySet="PRODUCT" />
+    </AssociationSet>
+    <AssociationSet Name="FK_RATE_PRODUCT_CUSTOMER" Association="Self.FK_RATE_PRODUCT_CUSTOMER">
+      <End Role="CUSTOMER" EntitySet="CUSTOMER" />
+      <End Role="RATE_PRODUCT" EntitySet="RATE_PRODUCT" />
+    </AssociationSet>
+    <AssociationSet Name="FK_RATE_PRODUCT_PRODUCT" Association="Self.FK_RATE_PRODUCT_PRODUCT">
+      <End Role="PRODUCT" EntitySet="PRODUCT" />
+      <End Role="RATE_PRODUCT" EntitySet="RATE_PRODUCT" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

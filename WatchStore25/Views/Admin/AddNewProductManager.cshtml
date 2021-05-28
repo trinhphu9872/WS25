@@ -1,0 +1,153 @@
+﻿
+@{
+    ViewBag.Title = "AddNewProductManager";
+    Layout = "~/Views/Shared/AdminLayout/LayoutAdmin.cshtml";
+}
+@Html.Partial("Event_")
+<main>
+    <div class="Chua">
+        <div class="title text-center">
+            <h3>Bảng Thêm Sản Phẩm</h3>
+        </div>
+        <div class="them text-right">
+            <!-- Button trigger modal -->
+            <button type="button"
+                    class="detail"
+                    data-toggle="modal"
+                    data-target="#addProduct">
+                Thêm Sản Phẩm
+            </button>
+
+            <!-- Modal -->
+            <div class="modal fade"
+                 id="addProduct"
+                 tabindex="-1"
+                 aria-labelledby="addLabel"
+                 aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="addLabel">
+                                Thêm Sản Phẩm
+                            </h5>
+                            <button type="button"
+                                    class="close"
+                                    data-dismiss="modal"
+                                    aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <form>
+                                <div class="form-group row">
+                                    <label class="col-3 col-form-label" for="upFile">Hình Ảnh</label>
+                                    <div class="col-9">
+                                        <input class="form-control btn-primary" type="file" id="upFile">
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label class="col-3 col-form-label">Mã SP</label>
+                                    <div class="col-9">
+                                        <input type="text"
+                                               class="form-control"
+                                               id="inputmasp"
+                                               placeholder="Nhập Mã Sản Phẩm" />
+                                    </div>
+                                </div>
+
+                                <!--  -->
+
+                                <div class="form-group row">
+                                    <label class="col-3 col-form-label">Tên SP</label>
+                                    <div class="col-9">
+                                        <input type="tel"
+                                               class="form-control"
+                                               id="inputtensp"
+                                               placeholder="Nhập Tên Sản Phẩm" />
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label class="col-3 col-form-label">Số Lượng</label>
+                                    <div class="col-9">
+                                        <input type="email"
+                                               class="form-control"
+                                               id="inputsoluong"
+                                               placeholder="Số Lượng" />
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label class="col-3 col-form-label">Giá</label>
+                                    <div class="col-9">
+                                        <input class="form-control"
+                                               type="text"
+                                               id="inputgia"
+                                               placeholder="Giá" />
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-primary">
+                                Thêm Sản Phẩm
+                            </button>
+                            <button type="button" class="btn btn-primary d-none">
+                                Cập Nhật sản phẩm
+                            </button>
+                            <button type="button"
+                                    class="btn btn-secondary"
+                                    data-dismiss="modal">
+                                Hủy Bỏ
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="table-chua row">
+            <div class="col-12">
+                <table class="table table-hover">
+                    <thead>
+                        <!-- Tiêu đề -->
+                        <tr>
+                            <th scope="col">Mã Sản Phẩm</th>
+                            <th scope="col">Tên Sản Phẩm</th>
+                            <th scope="col">Số Lượng</th>
+                            <th scope="col">Giá</th>
+                        </tr>
+                    </thead>
+                    <!-- Chứa thông tiên sản phẩm -->
+                    <tbody>
+                        <tr>
+
+                            <td><span class="status pink"></span>WS001</td>
+                            <td>Casio AE-1200WHD-1AVDF</td>
+                            <td>101</td>
+                            <td>1.246.000 VNĐ</td>
+                            <td class="card-header-seeall"><button>Sửa</button></td>
+                            <td class="card-header-seeall"><button>Xóa</button></td>
+                        </tr>
+                        <tr>
+                            <td><span class="status pink"></span>WS002</td>
+                            <td>G-Shock GA-400-1BDR</td>
+                            <td>98</td>
+                            <td>4.230.000 VNĐ</td>
+                            <td class="card-header-seeall"><button>Sửa</button></td>
+                            <td class="card-header-seeall"><button>Xóa</button></td>
+                        </tr>
+                        <tr>
+                            <td><span class="status pink"></span>WS003</td>
+                            <td>Daniel Wellington DW00100148</td>
+                            <td>72</td>
+                            <td>4.600.000 VNĐ</td>
+                            <td class="card-header-seeall"><button>Sửa</button></td>
+                            <td class="card-header-seeall"><button>Xóa</button></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+</main>
+
+

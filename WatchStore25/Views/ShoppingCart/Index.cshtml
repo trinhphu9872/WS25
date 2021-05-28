@@ -1,0 +1,66 @@
+﻿@model IEnumerable<WatchStore25.Models.DETAIL_ORDER>
+
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout1.cshtml";
+}
+
+
+
+
+<div class="small-container cart-page">
+    @using (Html.BeginForm("Edit", "ShoppingCart"))
+    {
+        <table>
+            <tr>
+                <th>Sản phẩm</th>
+                <th>Số lượng</th>
+                <th>Tổng tiền</th>
+            </tr>
+            @foreach (var item in Model)
+            {
+                <tr id="remove">
+                    <td>
+                        <div class="cart-info">
+                            <img src='~/Content/Images/@item.PRODUCT.img'>
+                            <div>
+                                @Html.Hidden("productID", item.PRODUCT.idProduct)
+                                <p><a href="@Url.Action("ProductDetail", "Home", new {id= @item.PRODUCT.idProduct }) ">@item.PRODUCT.name</a></p>
+                                <small>@item.PRODUCT.amount.ToString() vnđ </small>
+                                <br>
+
+                                <button name="productID" id="btnClick">Xóa</button>
+
+                            </div>
+                        </div>
+                    </td>
+
+                    <td> <input name="quanlity" type="number" min="0" value="@item.totalProduct"></td>
+                    <td>@((item.PRODUCT.amount * item.totalProduct - (item.PRODUCT.amount * item.totalProduct * item.PRODUCT.tax / 100)).ToString()) vnđ</td>
+                </tr>
+            }
+            <tr>
+            </tr>
+
+        </table>
+        <button class="btn "><a style="color:azure" href="@Url.Action("Edit","ShoppingCart")">Update Cart</a></button>
+    }
+    <div>
+        <button class="btn  "><a style="color:azure" href="@Url.Action("ProductsMan","Home")">Continue Buy</a></button>
+        <button class="btn "><a style="color:azure" href="@Url.Action("Delete","ShoppingCart")">Clear Cart</a> </button>
+    </div>
+
+    <hr />
+    <div class="total-price">
+
+        <table>
+            <tr>
+                <td><button class="btn "><a style="color:azure" href="@Url.Action("Create","Bill")">Tạo Đơn</a> </button></td>
+            </tr>
+        </table>
+    </div>
+</div>
+
+
+</table>

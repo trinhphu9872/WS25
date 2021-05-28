@@ -1,0 +1,98 @@
+﻿@model WatchStore25.Models.PRODUCT
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/AdminLayout/LayoutAdmin.cshtml";
+}
+@Html.Partial("Event_")
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+
+<div class="form-group">
+    <h4></h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.LabelFor(model => model.name, "Tên Sản Phẩm", htmlAttributes: new { @class = "control-label col-md-2" })
+        </dt>
+
+        <dd class="col-md-2">
+            @Html.DisplayFor(model => model.name)
+        </dd>
+
+        <dt>
+            @Html.LabelFor(model => model.detail, "Chi Tiết Sản Phẩm", htmlAttributes: new { @class = "control-label col-md-2" })
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.detail)
+        </dd>
+
+        <dt>
+            @Html.LabelFor(model => model.inventory, "Số Lượng", htmlAttributes: new { @class = "control-label col-md-2" })
+        </dt>
+
+        <dd class="col-md-2">
+            @Html.DisplayFor(model => model.inventory)
+        </dd>
+
+        <dt>
+            @Html.LabelFor(model => model.amount, "Giá", htmlAttributes: new { @class = "control-label col-md-2" })
+        </dt>
+
+        <dd class="col-md-2">
+            @Html.DisplayFor(model => model.amount)
+        </dd>
+
+        <dt>
+            @Html.LabelFor(model => model.img, "Hình Ảnh", htmlAttributes: new { @class = "control-label col-md-2" })
+        </dt>
+
+        <dd class="col-md-2">
+            <img src="@Url.Content("~/Content/Images/" + Model.img)" width="250" height="250" />
+        </dd>
+
+        <dt>
+            @Html.LabelFor(model => model.TYPE_PRODUCT.nameTypeProduct, "Loại Sản Phẩm", htmlAttributes: new { @class = "control-label col-md-2" })
+        </dt>
+
+        <dd class="col-md-2">
+            @Html.DisplayFor(model => model.TYPE_PRODUCT.nameTypeProduct)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <!-- Button trigger modal -->
+            <button type="button" class="detail" data-toggle="modal" data-target="#staticBackdrop">
+                Xóa
+            </button>
+
+            <!-- Modal -->
+            <div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="staticBackdropLabel"><b>Thông Báo</b></h5>
+
+                        </div>
+                        <div class="modal-body">
+                            Bạn chắc chắn muốn xóa sản phẩm này?
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="detail" data-dismiss="modal">Đóng</button>
+                            <input type="submit" value="Xóa" class="detail" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <button class="detail"> @Html.ActionLink("Trở Về", "Index", "Admin/ProductManager", new { Style = "color:White" })</button>
+        </div>
+    }
+</div>
