@@ -641,7 +641,6 @@ D:\WS25 Project\WS25\WatchStore25\bin\Microsoft.Owin.Security.Twitter.xml
 D:\WS25 Project\WS25\WatchStore25\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
 D:\WS25 Project\WS25\WatchStore25\bin\Microsoft.Owin.Security.OAuth.xml
 D:\WS25 Project\WS25\WatchStore25\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
-D:\WS25 Project\WS25\WatchStore25\obj\Debug\WatchStore25.csprojAssemblyReference.cache
 D:\WS25 Project\WS25\WatchStore25\obj\Debug\WatchStore25.csproj.CoreCompileInputs.cache
 D:\WS25 Project\WS25\WatchStore25\obj\Debug\WatchStore25.csproj.CopyComplete
 D:\WS25 Project\WS25\WatchStore25\obj\Debug\WatchStore25.dll
