@@ -28,6 +28,7 @@ namespace WatchStore25.Models
         public string status { get; set; }
         public Nullable<System.DateTime> startDate { get; set; }
         public Nullable<System.DateTime> updateDate { get; set; }
+        public Nullable<bool> idStatusOrder { get; set; }
     
         public virtual CUSTOMER CUSTOMER { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
