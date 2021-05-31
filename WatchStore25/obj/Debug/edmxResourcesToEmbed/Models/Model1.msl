@@ -27,6 +27,7 @@
     <EntitySetMapping Name="DETAIL_ORDER">
       <EntityTypeMapping TypeName="Models.DETAIL_ORDER">
         <MappingFragment StoreEntitySet="DETAIL_ORDER">
+          <ScalarProperty Name="idStatusOrder" ColumnName="idStatusOrder" />
           <ScalarProperty Name="idDetailOrder" ColumnName="idDetailOrder" />
           <ScalarProperty Name="idOrderProduct" ColumnName="idOrderProduct" />
           <ScalarProperty Name="totalProduct" ColumnName="totalProduct" />
@@ -40,12 +41,12 @@
     <EntitySetMapping Name="ORDER_PRODUCT">
       <EntityTypeMapping TypeName="Models.ORDER_PRODUCT">
         <MappingFragment StoreEntitySet="ORDER_PRODUCT">
+          <ScalarProperty Name="idStatusOrder" ColumnName="idStatusOrder" />
           <ScalarProperty Name="idOrderProduct" ColumnName="idOrderProduct" />
           <ScalarProperty Name="idCustomer" ColumnName="idCustomer" />
           <ScalarProperty Name="address" ColumnName="address" />
           <ScalarProperty Name="phone" ColumnName="phone" />
           <ScalarProperty Name="noteOrder" ColumnName="noteOrder" />
-          <ScalarProperty Name="status" ColumnName="status" />
           <ScalarProperty Name="startDate" ColumnName="startDate" />
           <ScalarProperty Name="updateDate" ColumnName="updateDate" />
         </MappingFragment>

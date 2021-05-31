@@ -37,6 +37,7 @@
     <Property Name="idProduct" Type="Int32" Nullable="false" />
     <NavigationProperty Name="ORDER_PRODUCT" Relationship="Self.FK_DETAIL_ORDER_ORDER_PRODUCT" FromRole="DETAIL_ORDER" ToRole="ORDER_PRODUCT" />
     <NavigationProperty Name="PRODUCT" Relationship="Self.FK_DETAIL_ORDER_PRODUCT" FromRole="DETAIL_ORDER" ToRole="PRODUCT" />
+    <Property Name="idStatusOrder" Type="Boolean" />
   </EntityType>
   <EntityType Name="ORDER_PRODUCT">
     <Key>
@@ -52,6 +53,7 @@
     <Property Name="updateDate" Type="DateTime" Precision="0" />
     <NavigationProperty Name="CUSTOMER" Relationship="Self.FK_ORDER_PRODUCT_CUSTOMER" FromRole="ORDER_PRODUCT" ToRole="CUSTOMER" />
     <NavigationProperty Name="DETAIL_ORDER" Relationship="Self.FK_DETAIL_ORDER_ORDER_PRODUCT" FromRole="ORDER_PRODUCT" ToRole="DETAIL_ORDER" />
+    <Property Name="idStatusOrder" Type="Boolean" />
   </EntityType>
   <EntityType Name="PRODUCT">
     <Key>

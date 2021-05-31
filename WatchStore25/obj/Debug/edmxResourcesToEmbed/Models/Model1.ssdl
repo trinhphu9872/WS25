@@ -33,6 +33,7 @@
     <Property Name="discount" Type="int" />
     <Property Name="totalAmount" Type="money" />
     <Property Name="idProduct" Type="int" Nullable="false" />
+    <Property Name="idStatusOrder" Type="bit" />
   </EntityType>
   <EntityType Name="ORDER_PRODUCT">
     <Key>
@@ -43,7 +44,7 @@
     <Property Name="address" Type="nvarchar" MaxLength="100" />
     <Property Name="phone" Type="varchar" MaxLength="10" />
     <Property Name="noteOrder" Type="nvarchar" MaxLength="100" />
-    <Property Name="status" Type="nvarchar" MaxLength="30" />
+    <Property Name="idStatusOrder" Type="bit" />
     <Property Name="startDate" Type="date" />
     <Property Name="updateDate" Type="date" />
   </EntityType>
