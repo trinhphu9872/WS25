@@ -96,7 +96,7 @@ namespace WatchStore25.Controllers
         }
 
         // GET: PRODUCTs/Delete/
-        public ActionResult Delete(int? id)
+        public ActionResult DeleAte(int? id)
         {
             if (id == null)
             {

@@ -23,9 +23,11 @@
                 <div class="search-wrapper">
 
                     <input type="text" name="keyword" placeholder="Tìm kiếm" value="@ViewBag.keyword" />
-                    <span @Url.Action("Search", "Home")>
-                        <i class="las la-search"></i>
-                    </span>
+                    <button style="border:none; background-color:white">
+                        <span @Url.Action("Search", "Home")>
+                            <i class="las la-search"></i>
+                        </span>
+                    </button>
                 </div>
             </form>
             <nav>

@@ -20,7 +20,8 @@ namespace WatchStore25.Controllers
         public ActionResult Search(string keyword)
         {
             var model = db.PRODUCTs.ToList();
-            model = model.Where(p => p.name.ToLower().Contains(keyword)).ToList();
+            model = model.Where(p => p.name.ToLower().Contains(keyword.ToLower())).ToList();
+            ViewBag.result = model.Count();
             ViewBag.keyword = keyword;
             return View(model);
         }
