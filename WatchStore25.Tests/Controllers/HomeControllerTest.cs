@@ -6,6 +6,7 @@ using System.Web.Mvc;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using WatchStore25;
 using WatchStore25.Controllers;
+using WatchStore25.Models;
 
 namespace WatchStore25.Tests.Controllers
 {
@@ -49,6 +50,24 @@ namespace WatchStore25.Tests.Controllers
 
             // Assert
             //Assert.IsNotNull(result);
+        }
+        [TestMethod]
+        public void Search()
+        {
+            var db = new WS25Entities();
+            var products = db.PRODUCTs.ToList();
+            var keyword = products.First().name.Split().First();
+            products = products.Where(p => p.name.ToLower().Contains(keyword.ToLower())).ToList();
+
+            var controller = new HomeController();
+            var result = controller.Search(keyword) as ViewResult;
+            Assert.IsNotNull(result);
+
+            var model = result.Model as List<PRODUCT>;
+            Assert.IsNotNull(model);
+
+            Assert.AreEqual(products.Count(), model.Count());
+            Assert.AreEqual(keyword, result.ViewData["keyword"]);
         }
     }
 }
