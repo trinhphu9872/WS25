@@ -47,19 +47,79 @@ namespace WatchStore25.Controllers
         // POST: PRODUCTs/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
+        [HttpPost, ValidateInput(false)]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "idProduct,name,idTypeProduct,detail,status,inventory,amount,img,tax")] PRODUCT pRODUCT)
+        public ActionResult Create(PRODUCT pRODUCT, HttpPostedFileBase imgfile)
         {
+            ValidateProduct(pRODUCT);
+            PRODUCT a = new PRODUCT();
             if (ModelState.IsValid)
             {
-                db.PRODUCTs.Add(pRODUCT);
-                db.SaveChanges();
-                return RedirectToAction("Index");
-            }
+                string path = uploadimage(imgfile);
 
+                if (path.Equals("-1"))
+                {
+                }
+                else
+                {
+                    a.name = pRODUCT.name;
+                    a.idTypeProduct = pRODUCT.idTypeProduct;
+                    a.inventory = pRODUCT.inventory;
+                    a.detail = pRODUCT.detail;
+                    a.img = path;
+                    a.tax = pRODUCT.tax;
+                    a.status = pRODUCT.status;
+                    a.amount = pRODUCT.amount;
+
+                    db.PRODUCTs.Add(a);
+                    db.SaveChanges();
+                }
+                return RedirectToAction("ProductManager", "Admin");
+            }
             ViewBag.idTypeProduct = new SelectList(db.TYPE_PRODUCT, "idTypeProduct", "nameTypeProduct", pRODUCT.idTypeProduct);
             return View(pRODUCT);
+        }
+
+        private void ValidateProduct(PRODUCT pRODUCT)
+        {
+            if (pRODUCT.amount < 0)
+            {
+                ModelState.AddModelError("amount", "Giá nhỏ hơn 0");
+            }
+        }
+
+        public string uploadimage(HttpPostedFileBase file)
+
+        {
+            string path = "-1";
+            if (file != null && file.ContentLength > 0)
+            {
+                string extension = Path.GetExtension(file.FileName);
+                if (extension.ToLower().Equals(".jpg") || extension.ToLower().Equals(".jpeg") || extension.ToLower().Equals(".png"))
+                {
+                    try
+                    {
+                        path = Path.Combine(Server.MapPath("~/Content/Images"), Path.GetFileName(file.FileName));
+                        file.SaveAs(path);
+                        path = Path.GetFileName(file.FileName);
+                        //    ViewBag.Message = "File uploaded successfully";
+                    }
+                    catch (Exception ex)
+                    {
+                        path = "-1";
+                    }
+                }
+                else
+                {
+                    Response.Write("<script>alert('Only jpg ,jpeg or png formats are acceptable....'); </script>");
+                }
+            }
+            else
+            {
+                Response.Write("<script>alert('Please select a file'); </script>");
+                path = "-1";
+            }
+            return path;
         }
 
         // GET: PRODUCTs/Edit/
@@ -83,20 +143,20 @@ namespace WatchStore25.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "idProduct,name,idTypeProduct,detail,status,inventory,amount,img,tax")] PRODUCT pRODUCT)
+        public ActionResult Edit(PRODUCT pRODUCT)
         {
             if (ModelState.IsValid)
             {
                 db.Entry(pRODUCT).State = EntityState.Modified;
                 db.SaveChanges();
-                return RedirectToAction("Index", "Admin/ProductManager");
+                return RedirectToAction("ProductManager", "Admin");
             }
             ViewBag.idTypeProduct = new SelectList(db.TYPE_PRODUCT, "idTypeProduct", "nameTypeProduct", pRODUCT.idTypeProduct);
             return View(pRODUCT);
         }
 
         // GET: PRODUCTs/Delete/
-        public ActionResult DeleAte(int? id)
+        public ActionResult Delete(int? id)
         {
             if (id == null)
             {
@@ -118,7 +178,7 @@ namespace WatchStore25.Controllers
             PRODUCT pRODUCT = db.PRODUCTs.Find(id);
             db.PRODUCTs.Remove(pRODUCT);
             db.SaveChanges();
-            return RedirectToAction("Index", "Admin/ProductManager");
+            return RedirectToAction("ProductManager", "Admin");
         }
 
         protected override void Dispose(bool disposing)

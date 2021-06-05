@@ -17,7 +17,7 @@
             @Html.LabelFor(model => model.name, "Tên Sản Phẩm", htmlAttributes: new { @class = "control-label col-md-2" })
         </dt>
 
-        <dd class="col-md-2">
+        <dd class="col-md-10">
             @Html.DisplayFor(model => model.name)
         </dd>
 
@@ -25,7 +25,7 @@
             @Html.LabelFor(model => model.detail, "Chi Tiết Sản Phẩm", htmlAttributes: new { @class = "control-label col-md-2" })
         </dt>
 
-        <dd>
+        <dd class="col-md-10">
             @Html.DisplayFor(model => model.detail)
         </dd>
 
@@ -67,7 +67,7 @@
     {
         @Html.AntiForgeryToken()
 
-        <div class="form-actions no-color">
+        <div class="form-actions no-color col-md-offset-2 col-md-10">
             <!-- Button trigger modal -->
             <button type="button" class="detail" data-toggle="modal" data-target="#staticBackdrop">
                 Xóa
@@ -79,20 +79,18 @@
                     <div class="modal-content">
                         <div class="modal-header">
                             <h5 class="modal-title" id="staticBackdropLabel"><b>Thông Báo</b></h5>
-
                         </div>
                         <div class="modal-body">
-                            Bạn chắc chắn muốn xóa sản phẩm này?
+                            Bạn muốn xóa sản phẩm này?
                         </div>
                         <div class="modal-footer">
-                            <button type="button" class="detail" data-dismiss="modal">Đóng</button>
                             <input type="submit" value="Xóa" class="detail" />
+                            <button type="button" class="detail" data-dismiss="modal">Đóng</button>
                         </div>
                     </div>
                 </div>
             </div>
-
-            <button class="detail"> @Html.ActionLink("Trở Về", "Index", "Admin/ProductManager", new { Style = "color:White" })</button>
+            <button class="detail">@Html.ActionLink("Trở Về", "ProductManager", "Admin", "", new { Style = "color:White" })</button>
         </div>
     }
 </div>

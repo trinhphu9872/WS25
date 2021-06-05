@@ -1,6 +1,8 @@
-﻿
-@{ ViewBag.Title = "Home Page";
-    Layout = "~/Views/Shared/AdminLayout/LayoutAdmin.cshtml"; }
+﻿@using WatchStore25.Models
+@{
+    ViewBag.Title = "Home Page";
+    Layout = "~/Views/Shared/AdminLayout/LayoutAdmin.cshtml";
+}
 @Html.Partial("Event_")
 <main>
 
@@ -9,7 +11,7 @@
         <div>
             <div class="card-single">
                 <div>
-                    <h1>20</h1>
+                    <h1>@ViewBag.SL</h1>
                     <span>Sản Phẩm</span>
                 </div>
                 <div>
@@ -34,25 +36,25 @@
                                 <td>Casio AE-1200WHD-1AVDF</td>
                                 <td>101</td>
                                 <td>1.246.000 VNĐ</td>
-                                <td><button class="detail"><a class="text-light" href=@Url.Action( "Edit","PRODUCTs",new { id = 2})>Chi Tiết</a><span class="las la-arrow-right"></span></td>>
+                                <td><button class="detail">Chi Tiết<span class="las la-arrow-right"></span></td>>
                             </tr>
                             <tr>
                                 <td><span class="status pink"></span>WS002</td>
                                 <td>G-Shock GA-400-1BDR</td>
                                 <td>98</td>
                                 <td>4.230.000 VNĐ</td>
-                                <td><button class="detail"><a class="text-light" href=@Url.Action( "Edit","PRODUCTs",new { id = 3})>Chi Tiết</a><span class="las la-arrow-right"></span></td>
+                                <td><button class="detail">Chi Tiết<span class="las la-arrow-right"></span></td>
                             </tr>
                             <tr>
                                 <td><span class="status pink"></span>WS003</td>
                                 <td>Daniel Wellington DW00100148</td>
                                 <td>72</td>
                                 <td>4.600.000 VNĐ</td>
-                                <td><button class="detail"><a class="text-light" href=@Url.Action( "Edit","PRODUCTs",new { id = 4})>Chi Tiết</a><span class="las la-arrow-right"></span></td>
+                                <td><button class="detail">Chi Tiết<span class="las la-arrow-right"></span></td>
                             </tr>
                             <tr>
                                 <td class="card-header-seeall" colspan="4">
-                                    <button class="detail"><a href=@Url.Action( "ProductManager","Admin")>Xem Tất Cả</a></button>
+                                    <button class="detail">@Html.ActionLink("Xem Tất Cả", "Index", "Product")</button>
                                 </td>
                             </tr>
                         </tbody>
@@ -65,7 +67,7 @@
         <div>
             <div class="card-single">
                 <div>
-                    <h1>54</h1>
+                    <h1>@ViewBag.KH</h1>
                     <span>Khách Hàng</span>
                 </div>
                 <div>
@@ -105,7 +107,7 @@
                             </tr>
                             <tr>
                                 <td class="card-header-seeall" colspan="4">
-                                    <button class="detail"><a href=@Url.Action( "CustomerManager","Admin")>Xem Tất Cả</a></button>
+                                    <button class="detail">@Html.ActionLink("Xem Tất Cả", "Index", "Customer")</button>
                                 </td>
                             </tr>
                         </tbody>
@@ -118,7 +120,7 @@
         <div>
             <div class="card-single">
                 <div>
-                    <h1>124</h1>
+                    <h1>@ViewBag.ORDER</h1>
                     <span>Đơn Hàng</span>
                 </div>
                 <div>
@@ -185,7 +187,7 @@
                             </tr>
                             <tr>
                                 <td class="card-header-seeall">
-                                    <button class="detail"><a href=@Url.Action( "Order","Admin")>Xem Tất Cả</a></button>
+                                    <button class="detail">@Html.ActionLink("Xem Tất Cả", "Index", "Oder")</button>
                                 </td>
                             </tr>
                         </tbody>

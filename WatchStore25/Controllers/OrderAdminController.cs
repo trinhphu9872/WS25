@@ -13,12 +13,13 @@ namespace WatchStore25.Controllers
     public class OrderAdminController : Controller
     {
         private WS25Entities db = new WS25Entities();
-
         // GET: OrderAdmin
         public ActionResult Index()
         {
+            ViewBag.SL = db.ORDER_PRODUCT.Count();
             var dETAIL_ORDER = db.DETAIL_ORDER.Include(d => d.ORDER_PRODUCT).Include(d => d.PRODUCT);
             return View(dETAIL_ORDER.ToList());
+
         }
 
         // GET: OrderAdmin/Details/5
@@ -37,31 +38,6 @@ namespace WatchStore25.Controllers
         }
 
         // GET: OrderAdmin/Create
-        public ActionResult Create()
-        {
-            ViewBag.idOrderProduct = new SelectList(db.ORDER_PRODUCT, "idOrderProduct", "address");
-            ViewBag.idProduct = new SelectList(db.PRODUCTs, "idProduct", "name");
-            return View();
-        }
-
-        // POST: OrderAdmin/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
-        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "idDetailOrder,idOrderProduct,totalProduct,amount,discount,totalAmount,idProduct,status")] DETAIL_ORDER dETAIL_ORDER)
-        {
-            if (ModelState.IsValid)
-            {
-                db.DETAIL_ORDER.Add(dETAIL_ORDER);
-                db.SaveChanges();
-                return RedirectToAction("Index");
-            }
-
-            ViewBag.idOrderProduct = new SelectList(db.ORDER_PRODUCT, "idOrderProduct", "address", dETAIL_ORDER.idOrderProduct);
-            ViewBag.idProduct = new SelectList(db.PRODUCTs, "idProduct", "name", dETAIL_ORDER.idProduct);
-            return View(dETAIL_ORDER);
-        }
 
         // GET: OrderAdmin/Edit/5
         public ActionResult Edit(int? id)
@@ -77,6 +53,7 @@ namespace WatchStore25.Controllers
             }
             ViewBag.idOrderProduct = new SelectList(db.ORDER_PRODUCT, "idOrderProduct", "address", dETAIL_ORDER.idOrderProduct);
             ViewBag.idProduct = new SelectList(db.PRODUCTs, "idProduct", "name", dETAIL_ORDER.idProduct);
+            ViewBag.idStatusOrder = new SelectList(db.STATUS_ORDER, "idStatusOrder", "Status", dETAIL_ORDER.idStatusOrder);
             return View(dETAIL_ORDER);
         }
 
@@ -85,7 +62,7 @@ namespace WatchStore25.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "idDetailOrder,idOrderProduct,totalProduct,amount,discount,totalAmount,idProduct")] DETAIL_ORDER dETAIL_ORDER)
+        public ActionResult Edit([Bind(Include = "idDetailOrder,idOrderProduct,totalProduct,amount,discount,totalAmount,idProduct,idStatusOrder")] DETAIL_ORDER dETAIL_ORDER)
         {
             if (ModelState.IsValid)
             {
@@ -95,6 +72,7 @@ namespace WatchStore25.Controllers
             }
             ViewBag.idOrderProduct = new SelectList(db.ORDER_PRODUCT, "idOrderProduct", "address", dETAIL_ORDER.idOrderProduct);
             ViewBag.idProduct = new SelectList(db.PRODUCTs, "idProduct", "name", dETAIL_ORDER.idProduct);
+            ViewBag.idStatusOrder = new SelectList(db.STATUS_ORDER, "idStatusOrder", "Status", dETAIL_ORDER.idStatusOrder);
             return View(dETAIL_ORDER);
         }
 

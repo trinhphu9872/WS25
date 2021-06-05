@@ -17,6 +17,7 @@ namespace WatchStore25.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public CUSTOMER()
         {
+            this.AspNetUsers = new HashSet<AspNetUser>();
             this.ORDER_PRODUCT = new HashSet<ORDER_PRODUCT>();
             this.RATE_PRODUCT = new HashSet<RATE_PRODUCT>();
         }
@@ -29,6 +30,8 @@ namespace WatchStore25.Models
         public string email { get; set; }
         public Nullable<System.DateTime> dateOfBirth { get; set; }
     
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<AspNetUser> AspNetUsers { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ORDER_PRODUCT> ORDER_PRODUCT { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

@@ -21,8 +21,10 @@ namespace WatchStore25.Models
         public Nullable<int> discount { get; set; }
         public Nullable<decimal> totalAmount { get; set; }
         public int idProduct { get; set; }
+        public Nullable<bool> idStatusOrder { get; set; }
     
         public virtual ORDER_PRODUCT ORDER_PRODUCT { get; set; }
         public virtual PRODUCT PRODUCT { get; set; }
+        public virtual STATUS_ORDER STATUS_ORDER { get; set; }
     }
 }

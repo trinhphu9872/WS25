@@ -4,21 +4,32 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="a4aa87c17d474d5f9baecf42b91add6e" Name="Diagram1">
-        <EntityTypeShape EntityType="Models.C__MigrationHistory" Width="1.5" PointX="2.75" PointY="8.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="Models.CUSTOMER" Width="1.5" PointX="0.75" PointY="8.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="Models.DETAIL_ORDER" Width="1.5" PointX="5.25" PointY="4.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="Models.ORDER_PRODUCT" Width="1.5" PointX="3" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="Models.PRODUCT" Width="1.5" PointX="3" PointY="4.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="Models.RATE_PRODUCT" Width="1.5" PointX="8.25" PointY="5" IsExpanded="true" />
-        <EntityTypeShape EntityType="Models.sysdiagram" Width="1.5" PointX="4.75" PointY="8.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="Models.TYPE_PRODUCT" Width="1.5" PointX="0.75" PointY="5.375" IsExpanded="true" />
-        <AssociationConnector Association="Models.FK_ORDER_PRODUCT_CUSTOMER" ManuallyRouted="false" />
-        <AssociationConnector Association="Models.FK_RATE_PRODUCT_CUSTOMER" ManuallyRouted="false" />
-        <AssociationConnector Association="Models.FK_DETAIL_ORDER_ORDER_PRODUCT" ManuallyRouted="false" />
-        <AssociationConnector Association="Models.FK_DETAIL_ORDER_PRODUCT" ManuallyRouted="false" />
-        <AssociationConnector Association="Models.FK_PRODUCT_TYPE_PRODUCT" ManuallyRouted="false" />
-        <AssociationConnector Association="Models.FK_RATE_PRODUCT_PRODUCT" ManuallyRouted="false" />
+      <Diagram DiagramId="edef060b365348b3bf60646939bd6679" Name="Diagram1">
+        <EntityTypeShape EntityType="CT25Team21Model.C__MigrationHistory" Width="1.5" PointX="8.75" PointY="0.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="CT25Team21Model.AspNetRole" Width="1.5" PointX="0.75" PointY="10.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="CT25Team21Model.AspNetUserClaim" Width="1.5" PointX="5.25" PointY="10.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="CT25Team21Model.AspNetUserLogin" Width="1.5" PointX="5.25" PointY="12.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="CT25Team21Model.AspNetUser" Width="1.5" PointX="3" PointY="5.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="CT25Team21Model.CUSTOMER" Width="1.5" PointX="0.75" PointY="6" IsExpanded="true" />
+        <EntityTypeShape EntityType="CT25Team21Model.DETAIL_ORDER" Width="1.5" PointX="8.25" PointY="5.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="CT25Team21Model.ORDER_PRODUCT" Width="1.5" PointX="6" PointY="5.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="CT25Team21Model.PRODUCT" Width="1.5" PointX="3.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CT25Team21Model.RATE_PRODUCT" Width="1.5" PointX="6" PointY="2.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="CT25Team21Model.STATUS_ORDER" Width="1.5" PointX="3.75" PointY="15.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="CT25Team21Model.sysdiagram" Width="1.5" PointX="7.75" PointY="9.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="CT25Team21Model.TYPE_PRODUCT" Width="1.5" PointX="1.5" PointY="1.625" IsExpanded="true" />
+        <AssociationConnector Association="CT25Team21Model.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" ManuallyRouted="false" />
+        <AssociationConnector Association="CT25Team21Model.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" ManuallyRouted="false" />
+        <AssociationConnector Association="CT25Team21Model.FK_AspNetUsers_CUSTOMER" ManuallyRouted="false" />
+        <AssociationConnector Association="CT25Team21Model.FK_ORDER_PRODUCT_CUSTOMER" ManuallyRouted="false" />
+        <AssociationConnector Association="CT25Team21Model.FK_RATE_PRODUCT_CUSTOMER" ManuallyRouted="false" />
+        <AssociationConnector Association="CT25Team21Model.FK_DETAIL_ORDER_ORDER_PRODUCT" ManuallyRouted="false" />
+        <AssociationConnector Association="CT25Team21Model.FK_DETAIL_ORDER_PRODUCT" ManuallyRouted="false" />
+        <AssociationConnector Association="CT25Team21Model.FK_DETAIL_ORDER_STATUS_ORDER" ManuallyRouted="false" />
+        <AssociationConnector Association="CT25Team21Model.FK_ORDER_PRODUCT_STATUS_ORDER" ManuallyRouted="false" />
+        <AssociationConnector Association="CT25Team21Model.FK_PRODUCT_TYPE_PRODUCT" ManuallyRouted="false" />
+        <AssociationConnector Association="CT25Team21Model.FK_RATE_PRODUCT_PRODUCT" ManuallyRouted="false" />
+        <AssociationConnector Association="CT25Team21Model.AspNetUserRoles" ManuallyRouted="false" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

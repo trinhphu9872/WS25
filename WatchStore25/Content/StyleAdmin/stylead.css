@@ -149,3 +149,8 @@ p.text-justify {
 .fixbntedit{
     text-align: center;
 }
+
+.hideamount {
+    clip-path: circle(0);
+
+}

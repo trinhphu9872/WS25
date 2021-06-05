@@ -7,6 +7,7 @@ using WatchStore25.Models;
 
 namespace WatchStore25.Controllers
 {
+    [Authorize(Roles = "Admin")]
     public class AdminController : Controller
 
     {
@@ -14,10 +15,14 @@ namespace WatchStore25.Controllers
         // GET: Admin
         public ActionResult HomeAdmin()
         {
+            ViewBag.SL = db.PRODUCTs.Count();
+            ViewBag.KH = db.CUSTOMERs.Count();
+            ViewBag.ORDER = db.ORDER_PRODUCT.Count();
             return View();
         }
         public ActionResult CustomerManager()
         {
+            ViewBag.SL = db.AspNetUsers.Count();
             return View();
         }
         public ActionResult OrderManager()
@@ -26,6 +31,7 @@ namespace WatchStore25.Controllers
         }
         public ActionResult ProductManager()
         {
+            ViewBag.SL = db.PRODUCTs.Count();
             return View(db.PRODUCTs);
         }
         public ActionResult AddNewProductManager()
@@ -40,7 +46,6 @@ namespace WatchStore25.Controllers
             ViewBag.keyword = keyword;
             return View(model);
         }
-
 
 
     }

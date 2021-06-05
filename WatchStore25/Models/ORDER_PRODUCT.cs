@@ -25,12 +25,13 @@ namespace WatchStore25.Models
         public string address { get; set; }
         public string phone { get; set; }
         public string noteOrder { get; set; }
-        public string status { get; set; }
+        public Nullable<bool> idStatusOrder { get; set; }
         public Nullable<System.DateTime> startDate { get; set; }
         public Nullable<System.DateTime> updateDate { get; set; }
     
         public virtual CUSTOMER CUSTOMER { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<DETAIL_ORDER> DETAIL_ORDER { get; set; }
+        public virtual STATUS_ORDER STATUS_ORDER { get; set; }
     }
 }

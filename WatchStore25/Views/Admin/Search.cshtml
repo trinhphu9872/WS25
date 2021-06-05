@@ -1,5 +1,4 @@
-﻿
-@using WatchStore25.Models
+﻿@using WatchStore25.Models
 @{ ViewBag.Title = "Search";
     Layout = "~/Views/Shared/AdminLayout/LayoutAdmin.cshtml"; }
 @Html.Partial("Event_")
@@ -48,7 +47,8 @@
                         <td>@item.amount</td>
                         <td class="card-header-seeall"><button>@Html.ActionLink("Sửa", "Edit", "PRODUCTs", new { id = item.idProduct }, null)</button></td>
                         <td class="card-header-seeall"><button>@Html.ActionLink("Xóa", "Delete", "PRODUCTs", new { id = item.idProduct }, null)</button></td>
-                    </tr>}
+                    </tr>
+}
                             </tbody>
                         </table>
                     </div>

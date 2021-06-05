@@ -4,7 +4,8 @@
     ViewBag.Title = "Tạo Đơn";
     Layout = "~/Views/Shared/_Layout1.cshtml";
     string keyword = Request.QueryString["keyword"];
-    var cart = ViewBag.Cart as List<DETAIL_ORDER>;
+@*    var cart = ViewBag.Cart as List<DETAIL_ORDER>;*@
+var cart = ViewBag.Cart as List<DETAIL_ORDER>;
 }
 
 <div class="container">
@@ -43,20 +44,7 @@
                         @Html.ValidationMessageFor(model => model.address, "", new { @class = "text-danger" })
                     </div>
                 </div>
-                <div class="form-group">
-                    @Html.LabelFor(model => model.noteOrder, htmlAttributes: new { @class = "control-label col-md-2" })
-                    <div class="col-md-10">
-                        @Html.EditorFor(model => model.noteOrder, new { htmlAttributes = new { @class = "form-control" } })
-                        @Html.ValidationMessageFor(model => model.noteOrder, "", new { @class = "text-danger" })
-                    </div>
-                </div>
-                <div class="form-group">
-                    @Html.LabelFor(model => model.startDate, htmlAttributes: new { @class = "control-label col-md-2" })
-                    <div class="col-md-10">
-                        @Html.EditorFor(model => model.startDate, new { htmlAttributes = new { @class = "form-control" } })
-                        @Html.ValidationMessageFor(model => model.startDate, "", new { @class = "text-danger" })
-                    </div>
-                </div>
+              
                 <div>
 
 
@@ -93,6 +81,7 @@
         </div>
     </div>
 </div>
+
 
 
 @*<h2>Create</h2>
@@ -170,5 +159,5 @@
     }
 *@
 <div>
-    @Html.ActionLink("Back to List", "Index","ShoppingCart")
+    @Html.ActionLink("Back to List", "Index", "ShoppingCart")
 </div>

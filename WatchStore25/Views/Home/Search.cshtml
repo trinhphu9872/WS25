@@ -7,10 +7,11 @@
     string keyword = Request.QueryString["keyword"];
 }
 
-@{ 
+@{
     if (keyword == "")
     {
-        <h2 style="color:red; text-align:center"><b>Vui lòng nhập từ khóa tìm kiếm!</b></h2><br />
+        <h2 style="color:red; text-align:center"><b>Vui lòng nhập từ khóa tìm kiếm!</b></h2>
+        <br />
     }
     else
     {
@@ -24,7 +25,7 @@
                 @foreach (var item in Model)
                 {
                     <div class="col-4">
-                        @if( (item.idTypeProduct == true) || (item.idTypeProduct == false))
+                        @if ((item.idTypeProduct == true) || (item.idTypeProduct == false))
                         {
                             <a href="@Url.Action("ProductDetail","Home", new {id = item.idProduct}, null)"><img src="@Url.Content("~/Content/Images/" + item.img)"></a>
                             <a href="@Url.Action("ProductDetail","Home", new {id = item.idProduct}, null)"><h4>@item.name</h4></a>

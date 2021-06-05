@@ -181,6 +181,18 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\AspNetRole.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\AspNetUser.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\AspNetUserClaim.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\AspNetUserLogin.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\CUSTOMER.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
@@ -214,6 +226,15 @@
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\RATE_PRODUCT.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\sp_helpdiagramdefinition_Result.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\sp_helpdiagrams_Result.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\STATUS_ORDER.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\sysdiagram.cs">
@@ -267,8 +288,8 @@
     <Content Include="Content\Images\SanPham7.png" />
     <Content Include="Content\Images\SanPham8.png" />
     <Content Include="Content\Images\SanPham9.png" />
-    <Content Include="Content\ImgAdmin\2.jpg" />
     <Content Include="Content\ImgAdmin\icon.png" />
+    <Content Include="Content\ImgAdmin\iconuser.png" />
     <Content Include="Content\ImgAdmin\logo.png" />
     <Content Include="Content\ImgAdmin\sp1.jpg" />
     <Content Include="Content\ImgAdmin\sp2.jpg" />
@@ -361,6 +382,7 @@
     <Content Include="Views\ShoppingCart\Details.cshtml" />
     <Content Include="Views\ShoppingCart\Edit.cshtml" />
     <Content Include="Views\ShoppingCart\Index.cshtml" />
+    <Content Include="Views\Bill\Create.cshtml" />
     <Content Include="Views\PRODUCTs\Create.cshtml" />
     <Content Include="Views\PRODUCTs\Delete.cshtml" />
     <Content Include="Views\PRODUCTs\Edit.cshtml" />
@@ -370,7 +392,6 @@
     <Content Include="Views\OrderAdmin\Index.cshtml" />
     <Content Include="Views\Shared\AdminLayout\_LayoutAdmin1.cshtml" />
     <Content Include="Views\Admin\Search.cshtml" />
-    <Content Include="Views\Bill\Create.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
