@@ -1,11 +1,14 @@
 ﻿@model WatchStore25.Models.ORDER_PRODUCT
 @using WatchStore25.Models
+
+@using System.Globalization;
+
 @{
     ViewBag.Title = "Tạo Đơn";
     Layout = "~/Views/Shared/_Layout1.cshtml";
     string keyword = Request.QueryString["keyword"];
-@*    var cart = ViewBag.Cart as List<DETAIL_ORDER>;*@
-var cart = ViewBag.Cart as List<DETAIL_ORDER>;
+    @*    var cart = ViewBag.Cart as List<DETAIL_ORDER>;*@
+    var cart = ViewBag.Cart as List<DETAIL_ORDER>;
 }
 
 <div class="container">
@@ -44,7 +47,7 @@ var cart = ViewBag.Cart as List<DETAIL_ORDER>;
                         @Html.ValidationMessageFor(model => model.address, "", new { @class = "text-danger" })
                     </div>
                 </div>
-              
+
                 <div>
 
 
@@ -67,13 +70,13 @@ var cart = ViewBag.Cart as List<DETAIL_ORDER>;
                         <tr>
                             <a href="@Url.Action("ProductDetail", "Home", new {id= @item.PRODUCT.idProduct })">
                                 <th>@item.PRODUCT.name x @item.totalProduct</th>
-                                <th>@((item.PRODUCT.amount * item.totalProduct - (item.PRODUCT.amount * item.totalProduct * item.PRODUCT.tax / 100)).ToString()) vnđ</th>
+                                <th>@string.Format(new CultureInfo("vi-VN"), "{0:#,## VNĐ}", (item.PRODUCT.amount * item.totalProduct - (item.PRODUCT.amount * item.totalProduct * item.PRODUCT.tax / 100)))</th>
                             </a>
                         </tr>
                     }
                     <tr>
                         <th>Total</th>
-                        <th>@(cart.Sum(item=> (item.PRODUCT.amount * item.totalProduct - (item.PRODUCT.amount * item.totalProduct * item.PRODUCT.tax / 100))))</th>
+                        <th>@(string.Format(new CultureInfo("vi-VN"), "{0:#,## VNĐ}", cart.Sum(item => (item.PRODUCT.amount * item.totalProduct - (item.PRODUCT.amount * item.totalProduct * item.PRODUCT.tax / 100)))))</th>
                     </tr>
 
                 </table>

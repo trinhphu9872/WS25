@@ -1,4 +1,5 @@
 ﻿@model WatchStore25.Models.DETAIL_ORDER
+@using System.Globalization;
 
 @{
     ViewBag.Title = "Create";
@@ -7,12 +8,12 @@
 <h2>Create</h2>
 
 
-@using (Html.BeginForm()) 
+@using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-    
+
     <div class="form-horizontal">
-        <h4>DETAIL_ORDER</h4>
+        <h4>DETAIL ORDER</h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         <div class="form-group">
@@ -35,7 +36,7 @@
             @Html.LabelFor(model => model.amount, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.amount, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.amount, "", new { @class = "text-danger" })
+                @Html.ValidationMessageFor(model => string.Format(new CultureInfo("vi-VN"), "{0:#,## VNĐ}", model.amount), "", new { @class = "text-danger" })
             </div>
         </div>
 
@@ -51,7 +52,7 @@
             @Html.LabelFor(model => model.totalAmount, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.totalAmount, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.totalAmount, "", new { @class = "text-danger" })
+                @Html.ValidationMessageFor(model => string.Format(new CultureInfo("vi-VN"), "{0:#,## VNĐ}", model.totalAmount), "", new { @class = "text-danger" })
             </div>
         </div>
 

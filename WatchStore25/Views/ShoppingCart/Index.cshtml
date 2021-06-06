@@ -1,5 +1,5 @@
 ﻿@model IEnumerable<WatchStore25.Models.DETAIL_ORDER>
-
+@using System.Globalization;
 
 @{
     ViewBag.Title = "Index";
@@ -27,7 +27,7 @@
                             <div>
                                 @Html.Hidden("productID", item.PRODUCT.idProduct)
                                 <p><a href="@Url.Action("ProductDetail", "Home", new {id= @item.PRODUCT.idProduct }) ">@item.PRODUCT.name</a></p>
-                                <small>@item.PRODUCT.amount.ToString() vnđ </small>
+                                <small>@string.Format(new CultureInfo("vi-VN"), "{0:#,## VNĐ}", item.PRODUCT.amount)</small>
                                 <br>
 
                                 <button name="productID" id="btnClick">Xóa</button>
@@ -37,7 +37,7 @@
                     </td>
 
                     <td> <input name="quanlity" type="number" min="0" value="@item.totalProduct"></td>
-                    <td>@((item.PRODUCT.amount * item.totalProduct - (item.PRODUCT.amount * item.totalProduct * item.PRODUCT.tax / 100)).ToString()) vnđ</td>
+                    <td>@string.Format(new CultureInfo("vi-VN"), "{0:#,## VNĐ}", item.PRODUCT.amount * item.totalProduct - (item.PRODUCT.amount * item.totalProduct * item.PRODUCT.tax / 100))</td>
                 </tr>
             }
             <tr>

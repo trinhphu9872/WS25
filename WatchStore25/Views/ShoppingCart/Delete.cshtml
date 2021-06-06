@@ -1,4 +1,5 @@
 ﻿@model WatchStore25.Models.DETAIL_ORDER
+@using System.Globalization;
 
 @{
     ViewBag.Title = "Delete";
@@ -20,11 +21,11 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.amount)
+            @Html.DisplayNameFor(model => string.Format(new CultureInfo("vi-VN"), "{0:#,## VNĐ}", model.amount))
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.amount)
+            @Html.DisplayFor(model => string.Format(new CultureInfo("vi-VN"), "{0:#,## VNĐ}", model.amount))
         </dd>
 
         <dt>
@@ -36,11 +37,11 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.totalAmount)
+            @Html.DisplayNameFor(model => string.Format(new CultureInfo("vi-VN"), "{0:#,## VNĐ}", model.totalAmount))
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.totalAmount)
+            @Html.DisplayFor(model => string.Format(new CultureInfo("vi-VN"), "{0:#,## VNĐ}", model.totalAmount))
         </dd>
 
         <dt>
@@ -61,7 +62,8 @@
 
     </dl>
 
-    @using (Html.BeginForm()) {
+    @using (Html.BeginForm())
+    {
         @Html.AntiForgeryToken()
 
         <div class="form-actions no-color">
