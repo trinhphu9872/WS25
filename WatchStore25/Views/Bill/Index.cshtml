@@ -30,6 +30,9 @@
         <th>
             @Html.DisplayNameFor(model => model.PRODUCT.name)
         </th>
+        <th>
+            @Html.DisplayNameFor(model => model.STATUS_ORDER.Status)
+        </th>
         <th></th>
     </tr>
 
@@ -52,6 +55,9 @@
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.PRODUCT.name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.STATUS_ORDER.Status)
         </td>
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.idDetailOrder }) |

@@ -47,14 +47,15 @@ namespace WatchStore25.Controllers
         public ActionResult Create(ORDER_PRODUCT model)
         {
             validationBill(model);
-            
-            model.startDate = DateTime.Now;
+
+
             model.idStatusOrder = false;
             model.idCustomer = 10;
-            model.idOrderProduct = 10;
+   
+
             if (ModelState.IsValid)
             {
-                db.ORDER_PRODUCT.Add(model) ;
+                db.ORDER_PRODUCT.Add(model);
                 db.SaveChanges();
 
                 foreach (var item in ShopingCarts)
@@ -64,10 +65,10 @@ namespace WatchStore25.Controllers
                     db.DETAIL_ORDER.Add(new DETAIL_ORDER
                     {
                         idOrderProduct = model.idOrderProduct,
-                        idProduct = item.idProduct,
-                        totalAmount = item.totalAmount,
+                        idProduct = item.PRODUCT.idProduct,
+                        totalAmount = item.PRODUCT.amount * item.totalProduct,
                         discount = item.discount,
-                        amount = item.amount,
+                        amount = item.PRODUCT.amount,
                         totalProduct = item.totalProduct,
                         idStatusOrder = model.idStatusOrder,
                     });
