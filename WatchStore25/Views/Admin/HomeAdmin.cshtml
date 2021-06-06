@@ -6,10 +6,10 @@
 
     <div class="cards">
 
-        <div>
+        @*     <div>
             <div class="card-single">
                 <div>
-                    <h1>20</h1>
+                    <h1>@ViewBag.SL</h1>
                     <span>Sản Phẩm</span>
                 </div>
                 <div>
@@ -60,12 +60,75 @@
                 </div>
 
             </div>
+        </div>*@
+        <div>
+            <div class="card-single">
+                <div>
+                    <h1>@ViewBag.SL</h1>
+                    <span>Sản Phẩm</span>
+                </div>
+                <div>
+                    <span class="las la-clipboard-list"></span>
+                </div>
+
+            </div>
+
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="color-table-if" width="100%">
+                        <thead>
+                            <tr>
+                                <td>Mã Sản Phẩm </td>
+                                <td>Tên Sản Phẩm</td>
+                                <td>Số Lượng</td>
+                                <td>Giá</td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><span class="status pink"></span>WS001</td>
+                                <td>Casio AE-1200WHD-1AVDF</td>
+                                <td>101</td>
+                                <td>1.246.000 VNĐ</td>
+                                <td><button class="detail"><a class="text-light" href=@Url.Action( "Edit","PRODUCTs",new { id = 2})>Chi Tiết</a><span class="las la-arrow-right"></span></td>
+                            </tr>
+                           @* <tr>
+                                <td><span class="status pink"></span>WS001</td>
+                                <td>Casio AE-1200WHD-1AVDF</td>
+                                <td>101</td>
+                                <td>1.246.000 VNĐ</td>
+                                <td><button class="detail"><a class="text-light" href=@Url.Action( "Edit","PRODUCTs",new { id = 2})>Chi Tiết</a><span class="las la-arrow-right"></span></td>> =
+                            </tr>*@
+                            <tr>
+                                <td><span class="status pink"></span>WS002</td>
+                                <td>G-Shock GA-400-1BDR</td>
+                                <td>98</td>
+                                <td>4.230.000 VNĐ</td>
+                                <td><button class="detail"><a class="text-light" href=@Url.Action( "Edit","PRODUCTs",new { id = 3})>Chi Tiết</a><span class="las la-arrow-right"></span></td>
+                            </tr>
+                            <tr>
+                                <td><span class="status pink"></span>WS003</td>
+                                <td>Daniel Wellington DW00100148</td>
+                                <td>72</td>
+                                <td>4.600.000 VNĐ</td>
+                                <td><button class="detail"><a class="text-light" href=@Url.Action( "Edit","PRODUCTs",new { id = 4})>Chi Tiết</a><span class="las la-arrow-right"></span></td>
+                            </tr>
+                            <tr>
+                                <td class="card-header-seeall" colspan="4">
+                                    <button class="detail"><a href=@Url.Action( "ProductManager","Admin")>Xem Tất Cả</a></button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+            </div>
         </div>
 
         <div>
             <div class="card-single">
                 <div>
-                    <h1>54</h1>
+                    <h1>@ViewBag.KH</h1>
                     <span>Khách Hàng</span>
                 </div>
                 <div>
@@ -118,7 +181,7 @@
         <div>
             <div class="card-single">
                 <div>
-                    <h1>124</h1>
+                    <h1>@ViewBag.ORDER</h1>
                     <span>Đơn Hàng</span>
                 </div>
                 <div>
