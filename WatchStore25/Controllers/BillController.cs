@@ -75,7 +75,7 @@ namespace WatchStore25.Controllers
                 }
                 db.SaveChanges();
                 Session["ShoppingCart"] = null;
-                return RedirectToAction("Index", "Product");
+                return RedirectToAction("Index", "Bill");
             }
             getShoppingCart();
             ViewBag.Cart = ShopingCarts;
