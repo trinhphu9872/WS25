@@ -95,6 +95,7 @@ namespace WatchStore25.Controllers
 
                         });
                     }
+         
             Session["ShopingCarts"] = ShopingCarts;
             return RedirectToAction("Index");
         }

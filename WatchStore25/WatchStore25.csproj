@@ -405,7 +405,7 @@
     <Content Include="Views\Shared\AdminLayout\_LayoutAdmin1.cshtml" />
     <Content Include="Views\Admin\Search.cshtml" />
     <Content Include="Views\Shared\Laybs4.cshtml" />
-    <Content Include="Views\Bill\Index.cshtml" />
+    <Content Include="Views\Bill\Show.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -18,6 +18,11 @@ namespace WatchStore25
                 url: "{controller}/{action}/{id}",
                 defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
             );
+            routes.MapRoute(
+            name: "map",
+            url: "{controller}/{action}/{id}",
+            defaults: new { controller = "Bill", action = "Index", id = UrlParameter.Optional }
+        );
         }
     }
 }

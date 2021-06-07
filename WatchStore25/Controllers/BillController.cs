@@ -7,12 +7,15 @@ using System.Web.Mvc;
 using WatchStore25.Models;
 
 
+
 namespace WatchStore25.Controllers
 {
     public class BillController : Controller
     {
         private WS25Entities db = new WS25Entities();
         private List<DETAIL_ORDER> ShopingCarts = null;
+        private List<ORDER_PRODUCT> Order = null;
+        private List<DETAIL_ORDER> CartItem = null;
         private void getShoppingCart()
         {
 
@@ -29,11 +32,54 @@ namespace WatchStore25.Controllers
             }
 
         }
+        private void getCartItem()
+        {
+
+            /*Phiên làm việc quản lí*/
+            /*       var session = System.Web.HttpContext.Current.Session;*/
+            if (Session["CartItem"] != null)
+            {
+                CartItem = Session["CartItem"] as List<DETAIL_ORDER>;
+            }
+            else
+            {
+                CartItem = new List<DETAIL_ORDER>();
+                Session["CartItem"] = CartItem;
+            }
+
+        }
+        private void getOrder()
+        {
+
+            /*Phiên làm việc quản lí*/
+            /*       var session = System.Web.HttpContext.Current.Session;*/
+            if (Session["Order"] != null)
+            {
+                Order = Session["Order"] as List<ORDER_PRODUCT>;
+            }
+            else
+            {
+                Order = new List<ORDER_PRODUCT>();
+                Session["Order"] = Order;
+            }
+
+        }
+
         // GET: Bill
+
         public ActionResult Index()
         {
-            var model = db.DETAIL_ORDER.ToList();
-            return View(model);
+            return View();
+        
+        }
+        public ActionResult Show()
+        {
+            getOrder();
+            var data = Order;
+            getCartItem();
+            ViewBag.CartItem = CartItem;
+            return View(data);
+
         }
         public ActionResult Create()
         {
@@ -47,10 +93,13 @@ namespace WatchStore25.Controllers
         public ActionResult Create(ORDER_PRODUCT model)
         {
             validationBill(model);
-
+            var date = DateTime.Now;
 
             model.idStatusOrder = false;
             model.idCustomer = 10;
+            model.startDate = date;
+            model.updateDate = date;
+          
    
 
             if (ModelState.IsValid)
@@ -72,10 +121,22 @@ namespace WatchStore25.Controllers
                         totalProduct = item.totalProduct,
                         idStatusOrder = model.idStatusOrder,
                     });
+                    getCartItem();
+                    CartItem.Add(item);
+                    Session["CartItem"] = CartItem;
+
                 }
+                var idOder = model.idOrderProduct;
                 db.SaveChanges();
-                Session["ShoppingCart"] = null;
-                return RedirectToAction("Index", "Bill");
+                getShoppingCart();
+                ShopingCarts.Clear();
+                ShopingCarts = null;
+                Session["ShoppingCart"] = ShopingCarts;
+                getOrder();
+                Order.Clear();
+                Order.Add(model);
+                Session["Order"] = Order;
+                return RedirectToAction("Show", "Bill" );
             }
             getShoppingCart();
             ViewBag.Cart = ShopingCarts;
