@@ -40,12 +40,8 @@ namespace WatchStore25.Controllers
         // GET: OrderAdmin/Create
 
         // GET: OrderAdmin/Edit/5
-        public ActionResult Edit(int? id)
+        public ActionResult Edit(int id)
         {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
             DETAIL_ORDER dETAIL_ORDER = db.DETAIL_ORDER.Find(id);
             if (dETAIL_ORDER == null)
             {
@@ -60,10 +56,11 @@ namespace WatchStore25.Controllers
         // POST: OrderAdmin/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
+        [HttpPost, ValidateInput(false)]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "idDetailOrder,idOrderProduct,totalProduct,amount,discount,totalAmount,idProduct,idStatusOrder")] DETAIL_ORDER dETAIL_ORDER)
+        public ActionResult Edit(DETAIL_ORDER dETAIL_ORDER)
         {
+            ValidateEdit(dETAIL_ORDER);
             if (ModelState.IsValid)
             {
                 db.Entry(dETAIL_ORDER).State = EntityState.Modified;
@@ -76,13 +73,16 @@ namespace WatchStore25.Controllers
             return View(dETAIL_ORDER);
         }
 
+        private void ValidateEdit(DETAIL_ORDER dETAIL_ORDER)
+        {
+            if (dETAIL_ORDER.totalProduct < 1)
+                ModelState.AddModelError("totalProduct", "Số lượng không được nhỏ hơn 1.");
+        }
+
         // GET: OrderAdmin/Delete/5
         public ActionResult Delete(int? id)
         {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
+
             DETAIL_ORDER dETAIL_ORDER = db.DETAIL_ORDER.Find(id);
             if (dETAIL_ORDER == null)
             {

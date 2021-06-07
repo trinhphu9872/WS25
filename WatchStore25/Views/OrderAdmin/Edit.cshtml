@@ -17,7 +17,6 @@
 
 
 
-
         <div class="d-flex flex-column justify-content-center align-items-center" id="order-heading">
             <div class="text-uppercase">
                 <p>Chi Tiết Đơn Hàng @Html.DisplayFor(model => model.idDetailOrder)</p>
@@ -36,17 +35,17 @@
 
                             @*Amout*@
                             <td class="text-right">
-                                
-                                    <div = "form-group">
-                                        Giá Tiền
-                                        <div>
-                                            @string.Format(new CultureInfo("vi-VN"), "{0:#,## VNĐ}", Model.amount)
-                                            <div class="hideamount">
-                                                @Html.EditorFor(model => model.amount, new { htmlAttributes = new { disable = "disable", @readonly = "readonly", @class = "form-control" } })
-                                                @Html.ValidationMessageFor(model => model.amount, "", new { @class = "text-danger" })
-                                            </div>
+
+                                <div ="form-group">
+                                    Giá Tiền
+                                    <div>
+                                        @string.Format(new CultureInfo("vi-VN"), "{0:#,## VNĐ}", Model.amount)
+                                        <div class="hideamount">
+                                            @Html.EditorFor(model => model.amount, new { htmlAttributes = new { disable = "disable", @readonly = "readonly", @class = "form-control" } })
+                                            @Html.ValidationMessageFor(model => model.amount, "", new { @class = "text-danger" })
                                         </div>
                                     </div>
+                                </div>
                             </td>
                         </tr>
                     </tbody>
