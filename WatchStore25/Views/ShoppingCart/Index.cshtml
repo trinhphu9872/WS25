@@ -2,7 +2,7 @@
 @using System.Globalization;
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Giỏ hàng";
     Layout = "~/Views/Shared/_Layout1.cshtml";
 }
 
@@ -44,11 +44,11 @@
             </tr>
 
         </table>
-        <button class="btn "><a style="color:azure" href="@Url.Action("Edit","ShoppingCart")">Update Cart</a></button>
+        <button class="btn "><a style="color:azure" href="@Url.Action("Edit","ShoppingCart")">Cập nhật giỏ hàng</a></button>
     }
     <div>
-        <button class="btn  "><a style="color:azure" href="@Url.Action("ProductsMan","Home")">Continue Buy</a></button>
-        <button class="btn "><a style="color:azure" href="@Url.Action("Delete","ShoppingCart")">Clear Cart</a> </button>
+        <button class="btn  "><a style="color:azure" href="@Url.Action("ProductsMan","Home")">Tiếp tục mua hàng</a></button>
+        <button class="btn "><a style="color:azure" href="@Url.Action("Delete","ShoppingCart")">Xóa giỏ hàng</a> </button>
     </div>
 
     <hr />

@@ -9,7 +9,7 @@
 }
 
 <div class="container">
-    <h1 class="row" style="font-size:60px">Checkout</h1>
+    <h1 class="row" style="font-size:60px">Tạo đơn hàng</h1>
     <div class="row" style="justify-content:space-between">
         <div style="flex-basis:55%">
             <h1 style="text-align:center; margin:20px">Thông Tin Khách Hàng</h1>
@@ -21,20 +21,20 @@
 
                     <hr />
                     <div class="form-group">
-                        <label for="inputAddress" class="text-ti">Name</label>
+                        <h2>Tên</h2>
                         <input type="text"
                                class="form-control text-form"
                                id="inputName" />
                     </div>
                     <div class="form-group ">
-                        <label for="inputAddress" class="text-ti">Last Name</label>
+                        <h2>Họ</h2>
                         <input type="text"
                                class="form-control text-form"
                                id="inputLastName" />
                     </div>
 
                     <div class="form-group">
-                        @Html.LabelFor(model => model.address, htmlAttributes: new { @class = "control-label col-md-2 text-ti" })
+                        <h2>Địa chỉ</h2>
                         <div class="col-md-10">
                             @Html.EditorFor(model => model.address, new { htmlAttributes = new { @class = "form-control text-form" } })
                             @Html.ValidationMessageFor(model => model.address, "", new { @class = "text-danger" })
@@ -42,7 +42,7 @@
                     </div>
 
                     <div class="form-group">
-                        @Html.LabelFor(model => model.phone, htmlAttributes: new { @class = "control-label col-md-2 text-ti " })
+                        <h2>Điện thoại</h2>
                         <div class="col-md-10">
                             @Html.EditorFor(model => model.phone, new { htmlAttributes = new { @class = "form-control text-form" } })
                             @Html.ValidationMessageFor(model => model.phone, "", new { @class = "text-danger" })
@@ -50,48 +50,32 @@
                     </div>
 
                     <div class="form-group">
-                        @Html.LabelFor(model => model.noteOrder, htmlAttributes: new { @class = "control-label col-md-2  text-ti" })
+                        <h2>Ghi chú</h2>
                         <div class="col-md-10">
                             @Html.EditorFor(model => model.noteOrder, new { htmlAttributes = new { @class = "form-control text-form" } })
                             @Html.ValidationMessageFor(model => model.noteOrder, "", new { @class = "text-danger" })
                         </div>
                     </div>
-                    <div class="form-group">
-                        @Html.LabelFor(model => model.startDate, htmlAttributes: new { @class = "control-label col-md-2  text-ti" })
-                        <div class="col-md-10">
-                            @Html.EditorFor(model => model.startDate, new { htmlAttributes = new { @class = "form-control text-form" } })
-                            @Html.ValidationMessageFor(model => model.startDate, "", new { @class = "text-danger" })
-                        </div>
-                    </div>
 
-                    <div class="form-group">
-                        @Html.LabelFor(model => model.updateDate, htmlAttributes: new { @class = "control-label col-md-2 text-ti " })
-                        <div class="col-md-10">
-                            @Html.EditorFor(model => model.updateDate, new { htmlAttributes = new { @class = "form-control text-form" } })
-                            @Html.ValidationMessageFor(model => model.updateDate, "", new { @class = "text-danger" })
-                        </div>
-                    </div>
 
                     <div class="form-group">
                         <div class="col-md-offset-2 col-md-10" style="width:300px; margin:auto">
-                            <input type="submit" value="Create" class="btn btn-default" />
+                            <input type="submit" value="Tạo đơn" class="btn btn-default" />
+                            <input type="button" value="Trở về" class="btn btn-default" class="detail" onClick="history.go(-1); return false;" />
                         </div>
                     </div>
                 </div>
 
             }
-            <div class="backsite">
-                @Html.ActionLink("Back to List", "Index", "ShoppingCart")
-            </div>
         </div>
         <div class="col-4 " style="flex-basis:35%">
             <div class="card">
-                <h1>Product</h1>
+                <h1>Sản Phẩm</h1>
                 <table>
                     <tr>
-                        <th>Product</th>
-                        <th>img</th>
-                        <th>Total</th>
+                        <th>Tên sản phẩm</th>
+                        <th>Hình</th>
+                        <th>Tổng tiền</th>
                     </tr>
                     @foreach (var item in cart)
                     {
@@ -104,7 +88,7 @@
                         </tr>
                     }
                     <tr>
-                        <th>Total</th>
+                        <th>Tổng tiền</th>
                         <th></th>
                         <th>@(cart.Sum(item=> (item.PRODUCT.amount * item.totalProduct - (item.PRODUCT.amount * item.totalProduct * item.PRODUCT.tax / 100))))</th>
                     </tr>
