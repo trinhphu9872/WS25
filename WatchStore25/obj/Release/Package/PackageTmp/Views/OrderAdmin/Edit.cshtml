@@ -1,0 +1,178 @@
+﻿@model WatchStore25.Models.DETAIL_ORDER
+@using System.Globalization;
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/AdminLayout/_LayoutAdmin1.cshtml";
+}
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.idDetailOrder)
+
+
+
+        <div class="d-flex flex-column justify-content-center align-items-center" id="order-heading">
+            <div class="text-uppercase">
+                <p>Chi Tiết Đơn Hàng @Html.DisplayFor(model => model.idDetailOrder)</p>
+            </div>
+            <div class="h4"> @Html.DisplayFor(model => model.ORDER_PRODUCT.updateDate)</div>
+            <div class="pt-1">
+                <p>Đơn Hàng Số @Html.DisplayFor(model => model.idDetailOrder): <b class="text-dark">@Html.DisplayFor(model => model.STATUS_ORDER.Status)</b></p>
+            </div>
+            <div class="btn close text-white">@Html.ActionLink("X", "Index") </div>
+        </div>
+        <div class="wrapper bg-white">
+            <div class="table-responsive">
+                <table class="table table-borderless">
+                    <tbody>
+                        <tr>
+
+                            @*Amout*@
+                            <td class="text-right">
+
+                                <div ="form-group">
+                                    Giá Tiền
+                                    <div>
+                                        @string.Format(new CultureInfo("vi-VN"), "{0:#,## VNĐ}", Model.amount)
+                                        <div class="hideamount">
+                                            @Html.EditorFor(model => model.amount, new { htmlAttributes = new { disable = "disable", @readonly = "readonly", @class = "form-control" } })
+                                            @Html.ValidationMessageFor(model => model.amount, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            @*Product*@
+            <div class="d-flex justify-content-start align-items-center list py-1">
+                <div>
+                    <b>
+                        <div class="form-group">
+                            Số Lượng
+                            <div class="col-md-10">
+                                @Html.EditorFor(model => model.totalProduct, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.totalProduct, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                    </b>
+                </div>
+                <div class="mx-3"></div>
+                <div class="font-color">
+                    <div class="form-group">
+                        Sản Phẩm
+                        <div>
+                            @Html.DisplayFor(model => model.PRODUCT.name)
+                            <div class="hideamount">
+                                @Html.DropDownList("idProduct", null, htmlAttributes: new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.idProduct, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pt-2 border-bottom mb-3"></div>
+            <div class="d-flex justify-content-start align-items-center py-1 pl-3">
+                <div class="text-muted">Shipping</div>
+                <div class="ml-auto"> <label>Free</label> </div>
+            </div>
+            <div class="d-flex justify-content-start align-items-center pb-4 pl-3 border-bottom">
+                <div class="text-muted">
+
+                    <b>
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.discount, "Discount:", htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div>
+                                @Html.DisplayFor(model => model.discount)
+                                <div class="hideamount">
+                                    @Html.EditorFor(model => model.discount, new { disable = "disable", @readonly = "readonly", htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.discount, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                        </div>
+                    </b>
+
+                </div>
+                <div class="ml-auto price"> </div>
+            </div>
+
+            <div class="d-flex justify-content-start align-items-center pl-3 py-3 mb-4 border-bottom">
+                <div class="ml-auto h5">
+                    <div class="form-group">
+                        Tổng Giá:
+                        <div>
+                            @for (int i = (int)Model.totalProduct; i <= Model.totalProduct; i++)
+                            {
+
+                                if (Model.idDetailOrder != null)
+                                {
+                                    Model.totalAmount = Model.totalProduct * Model.amount;
+                                }
+                            }
+                            @string.Format(new CultureInfo("vi-VN"), "{0:#,## VNĐ}", Model.totalAmount)
+                            <div class="hideamount">
+                                @Html.EditorFor(model => model.totalAmount, new { disable = "disable", @readonly = "readonly", htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.totalAmount, "", new { @class = "text-danger" })
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row border rounded p-1 my-3">
+                <div class="col-md-6 py-3">
+                    <div class="d-flex flex-column align-items start">
+                        <b>Khách Hàng</b>
+                        <p class="text-justify pt-2"> @Html.DisplayFor(model => model.ORDER_PRODUCT.CUSTOMER.name)</p>
+                        <p></p>
+
+                        <p class="text-justify pt-2">
+                            <div class="form-group">
+                                <b>Địa Chỉ</b>
+                                <div>
+                                    @Html.DisplayFor(model => model.ORDER_PRODUCT.address)
+                                    <div class="hideamount">
+                                        @Html.DropDownList("idOrderProduct", null, htmlAttributes: new { @class = "form-control" })
+                                        @Html.ValidationMessageFor(model => model.idOrderProduct, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+                            </div>
+                        </p>
+
+                    </div>
+                </div>
+            </div>
+            <div class="pl-3 font-weight-bold">Tình Trạng Đơn Hàng</div>
+            <div class="d-sm-flex justify-content-between rounded my-3 subscriptions">
+                <div>@Html.DisplayFor(model => model.ORDER_PRODUCT.updateDate)</div>
+
+                <div class="form-group">
+                    Tình Trạng
+                    <div class="col-md-10">
+                        @Html.DropDownList("idStatusOrder", null, htmlAttributes: new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.idStatusOrder, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div>
+                    Tổng:
+                    <b> @string.Format(new CultureInfo("vi-VN"), "{0:#,## VNĐ}", Model.totalAmount) </b>
+                </div>
+            </div>
+            <div class="pt-2 border-bottom mb-3"></div>
+            <div class="fixbntedit">
+                <div class="form-actions no-color">
+                    <input type="submit" value="Cập Nhật" class="btn btn-default" />
+                </div>
+            </div>
+        </div>
+    </div>
+
+}

@@ -1,0 +1,96 @@
+﻿@model IEnumerable<WatchStore25.Models.DETAIL_ORDER>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/AdminLayout/LayoutAdmin.cshtml";
+}
+@Html.Partial("Event_")
+<main>
+    <div class="cards1">
+        <div class="card-single">
+            <div>
+                <h1>@ViewBag.SL</h1>
+                <span>Orders</span>
+            </div>
+            <div>
+                <span class="las la-shopping-bag"></span>
+            </div>
+        </div>
+    </div>
+    <div class="recent-grid">
+        <div class="projects">
+            <div class="card">
+                <div class="card-header">
+                    <h3>Đơn hàng</h3>
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive">
+
+                        <table class="table" width="100%">
+                            <tr>
+                                <th>
+                                    Mã Đơn Hàng
+                                </th>
+                                <th>
+                                    Khách Hàng
+                                </th>
+                                <th>
+                                    Sản Phẩm
+                                </th>
+                                <th>
+                                    Số Lượng
+                                </th>
+                                <th>
+                                    Ngày Đặt
+                                </th>
+
+                                <th></th>
+                            </tr>
+
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td width="12%">
+                                        @Html.DisplayFor(modeolItem => item.idDetailOrder)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.ORDER_PRODUCT.CUSTOMER.name)
+                                    </td>
+                                    <td width="20%">
+                                        @Html.DisplayFor(modelItem => item.PRODUCT.name)
+                                    </td>
+
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.totalProduct)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.ORDER_PRODUCT.startDate)
+                                    </td>
+                                    <td class="card-header-seeall">
+                                        <button>
+                                            @Html.ActionLink("Detail", "Details", new { id = item.idDetailOrder })
+                                        </button>
+                                    </td>
+                                    <td class="card-header-seeall">
+                                        <button>
+                                            @Html.ActionLink("Edit", "Edit", new { id = item.idDetailOrder })
+                                        </button>
+                                    </td>
+                                    <td class="card-header-seeall">
+                                        <button>
+                                            @Html.ActionLink("Delete", "Delete", new { id = item.idDetailOrder })
+                                        </button>
+                                    </td>
+                                </tr>
+                            }
+
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+
+
+

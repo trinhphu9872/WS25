@@ -1,0 +1,182 @@
+﻿@using WatchStore25.Models;
+@using System.Globalization;
+
+@{ ViewBag.Title = "Trang chủ";
+                Layout = "~/Views/Shared/_Layout.cshtml";
+    <link href="~/Content/style.css" rel="stylesheet" /> }
+
+
+<body>
+
+    <!------ featured products ------>
+    <div class="small-container">
+        <h2 class="title">Đồng hồ nam bán chạy</h2>
+        <div class="row">
+            @foreach (var item in Model)
+            {
+            <div class="col-4">
+                @if (item.idTypeProduct == true)
+                {
+                    <a href="@Url.Action("ProductDetail","Home", new {id = item.idProduct}, null)"><img src="@Url.Content("~/Content/Images/" + item.img)"></a>
+                    <a href="@Url.Action("ProductDetail","Home", new {id = item.idProduct}, null)"><h4>@item.name</h4></a>
+                    <div class="ratting">
+                         <i class="fa fa-star"></i>
+                         <i class="fa fa-star"></i>
+                         <i class="fa fa-star"></i>
+                         <i class="fa fa-star"></i>
+                         <i class="fa fa-star-o"></i>
+                     </div>
+                     <p><h3>@string.Format(new CultureInfo("vi-VN"), "{0:#,## VNĐ}", item.amount)</h3></p>
+                                                          }
+            </div>   
+            }
+        </div>
+
+        <h2 class="title">Đồng hồ nữ bán chạy</h2>
+          <div class="row">
+            @foreach (var item in Model)
+            {
+            <div class="col-4">
+                @if (item.idTypeProduct == false)
+                {
+                    <a href="@Url.Action("ProductDetail","Home", new {id = item.idProduct}, null)"><img src="@Url.Content("~/Content/Images/" + item.img)"></a>
+                    <a href="@Url.Action("ProductDetail","Home", new {id = item.idProduct}, null)"><h4>@item.name</h4></a>
+                    <div class="ratting">
+                         <i class="fa fa-star"></i>
+                         <i class="fa fa-star"></i>
+                         <i class="fa fa-star"></i>
+                         <i class="fa fa-star"></i>
+                         <i class="fa fa-star-o"></i>
+                     </div>
+                     <p><h3>@string.Format(new CultureInfo("vi-VN"), "{0:#,## VNĐ}", item.amount)</h3></p>
+                                                                            }
+            </div>   
+            }
+        </div>
+    </div>
+
+    <!------Offer-->
+    <div class="offer">
+        <div class="small-container">
+            <div class="row">
+                <div class="col-2">
+                    <img src="~/Content/Images/DocQuyen.png" class="offer-img">
+                </div>
+                <div class="col-2">
+                    <p>Phân phối độc quyền bởi WS25</p>
+                    <h1>Đồng hồ Stuhrling Original Tourbillon 213T.333X2</h1>
+                    <pre>
+Chất liệu dây: Dây da cá sấu
+Chất liệu mặt:  Sapphire tinh thể                    
+Chất liệu vỏ : Thép không gỉ mạ vàng 18K                    
+Dòng máy: Cơ cao cấp Tourbillon ( lên cót tay )                    
+Đường kính: 44,8 mm                    
+Độ dày: 13 mm                    
+Độ chịu nước : 5 ATM</pre>
+                    <a href="" class="btn">Mua ngay &#8594;</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--------testimonial---------->
+    <div class="testimonial">
+        <div class="small-container">
+            <div class="row">
+                <div class="col-3">
+                    <i class="fa fa-quote-left"></i>
+                    <p>
+                        Đồng hồ giá tốt, nhân viên tư vấn nhiệt tình, chế độ hậu mãi tuyệt vời. Chắc chắn tôi sẽ giới
+                        thiệu bạn bè mình đến mua sắm tại WS25
+                    </p>
+                    <div class="ratting">
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                    </div>
+                    <img src="~/Content/Images/Cus1.png">
+                    <h3>Văn Hùng</h3>
+                </div>
+                <div class="col-3">
+                    <i class="fa fa-quote-left"></i>
+                    <p>
+                        Tôi ủng hộ những người đặt lợi ích của khách hàng làm mục tiêu phấn đấu.
+                        Vì vậy, tôi đã ủng hộ và lựa chọn WS25.
+                    </p>
+                    <div class="ratting">
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                    </div>
+                    <img src="~/Content/Images/Cus2.png">
+                    <h3>Trịnh Phú</h3>
+                </div>
+                <div class="col-3">
+                    <i class="fa fa-quote-left"></i>
+                    <p>
+                        Anh ấn tượng với đội ngũ nhân viên kỹ thuật ở đây với sự tận tâm, chuyên nghiệp.
+                        Anh gửi lời chúc mừng và hi vọng WS25 luôn luôn lớn mạnh
+                    </p>
+                    <div class="ratting">
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                    </div>
+                    <img src="~/Content/Images/Cus3.png">
+                    <h3>Thanh Hoài</h3>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!--------brand---------->
+    <div class="brands">
+        <div class="small-container">
+            <div class="row">
+                <div class="col-5">
+                    <img src="~/Content/Images/Brand1.png">
+                </div>
+                <div class="col-5">
+                    <img src="~/Content/Images/Brand2.png">
+                </div>
+                <div class="col-5">
+                    <img src="~/Content/Images/Brand3.png">
+                </div>
+                <div class="col-5">
+                    <img src="~/Content/Images/Brand4.png">
+                </div>
+                <div class="col-5">
+                    <img src="~/Content/Images/Brand5.png">
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <!--------js for toggle menu--------->
+    <script>
+        var MenuItems = document.getElementById("MenuItems");
+
+        MenuItems.style.maxHeight = "0px";
+
+        function menutoggle() {
+            if (MenuItems.style.maxHeight == "0px") {
+                MenuItems.style.maxHeight = "200px";
+            }
+            else {
+                MenuItems.style.maxHeight = "0px";
+            }
+        }
+    </script>
+
+</body>
+

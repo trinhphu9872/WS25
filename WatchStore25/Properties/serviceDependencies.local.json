@@ -1,8 +1,18 @@
 {
   "dependencies": {
     "mssql1": {
+      "resourceId": null,
       "type": "mssql.local",
-      "connectionId": "DefaultConnection"
+      "connectionId": "WS25Entities",
+      "secretStore": null
+    },
+    "secrets1": {
+      "type": "secrets.user"
+    },
+    "mssql2": {
+      "type": "mssql.onprem",
+      "connectionId": "ws",
+      "secretStore": "LocalSecretsFile"
     }
   }
 }

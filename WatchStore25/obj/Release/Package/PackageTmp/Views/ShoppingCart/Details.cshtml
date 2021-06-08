@@ -1,0 +1,67 @@
+﻿@model WatchStore25.Models.DETAIL_ORDER
+@using System.Globalization;
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>DETAIL_ORDER</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.totalProduct)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.totalProduct)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => string.Format(new CultureInfo("vi-VN"), "{0:#,## VNĐ}", model.amount))
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => string.Format(new CultureInfo("vi-VN"), "{0:#,## VNĐ}", model.amount))
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.discount)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.discount)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => string.Format(new CultureInfo("vi-VN"), "{0:#,## VNĐ}", model.totalAmount))
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => string.Format(new CultureInfo("vi-VN"), "{0:#,## VNĐ}", model.totalAmount))
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ORDER_PRODUCT.address)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ORDER_PRODUCT.address)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PRODUCT.name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PRODUCT.name)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.idDetailOrder }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

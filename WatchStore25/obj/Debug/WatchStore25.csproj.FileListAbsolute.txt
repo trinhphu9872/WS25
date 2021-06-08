@@ -1526,3 +1526,7 @@ D:\WS project\WS25\WatchStore25\obj\Debug\WatchStore25.csproj.CoreCompileInputs.
 D:\WS project\WS25\WatchStore25\obj\Debug\WatchStore25.csproj.CopyComplete
 D:\WS project\WS25\WatchStore25\obj\Debug\WatchStore25.dll
 D:\WS project\WS25\WatchStore25\obj\Debug\WatchStore25.pdb
+D:\WS project\WS25\WatchStore25\bin\Microsoft.Configuration.ConfigurationBuilders.Base.dll
+D:\WS project\WS25\WatchStore25\bin\Microsoft.Configuration.ConfigurationBuilders.UserSecrets.dll
+D:\WS project\WS25\WatchStore25\bin\Microsoft.Configuration.ConfigurationBuilders.Base.xml
+D:\WS project\WS25\WatchStore25\bin\Microsoft.Configuration.ConfigurationBuilders.UserSecrets.xml

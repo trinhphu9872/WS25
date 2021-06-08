@@ -1,0 +1,86 @@
+﻿@using WatchStore25.Models
+@using System.Globalization;
+@{
+    ViewBag.Title = "ProductManager";
+    Layout = "~/Views/Shared/AdminLayout/LayoutAdmin.cshtml";
+}
+@Html.Partial("Event_")
+<main>
+    <div class="cards1">
+        <div class="card-single">
+            <div>
+
+                <h1>@ViewBag.SL</h1>
+                <span>Products</span>
+            </div>
+            <div>
+                <span class="las la-clipboard-list"></span>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="recent-grid">
+        <div class="projects">
+            <div class="card">
+                <div class="card-header">
+                    <h3>Sản Phẩm</h3>
+                    <table>
+                        <tr>
+                            <td class="card-header-seeall">
+                                <button class="detail">@Html.ActionLink("Thêm", "Index", "PRODUCTs/Create")</button>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+
+                <div class="table-chua row">
+                    <div class="col-12">
+
+                        <table class="table table-hover">
+                            <thead>
+                                <!-- Tiêu đề -->
+                                <tr>
+                                    <th scope="col">Mã Sản Phẩm</th>
+                                    <th scope="col">Tên Sản Phẩm</th>
+                                    <th scope="col">Số Lượng</th>
+                                    <th scope="col">Giá</th>
+                                </tr>
+                            </thead>
+                            <!-- Chứa thông tiên sản phẩm -->
+                            <tbody>
+                                @foreach (var item in Model)
+                                {
+                                    <tr>
+
+                                        <td><span class="status pink"></span>@item.idProduct</td>
+                                        <td>@item.name</td>
+                                        <td>@item.inventory</td>
+                                        <td>@string.Format(new CultureInfo("vi-VN"), "{0:#,## VNĐ}", item.amount)</td>
+                                        <td class="card-header-seeall"><button>@Html.ActionLink("Sửa", "Edit", "PRODUCTs", new { id = item.idProduct }, null)</button></td>
+                                        <td class="card-header-seeall"><button>@Html.ActionLink("Xóa", "Delete", "PRODUCTs", new { id = item.idProduct }, null)</button></td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <tr>
+                    <td class="card-header-seeall">
+                        <button>See all <span class="las la-arrow-right"></span></button>
+                    </td>
+                </tr>
+                </tbody>
+                </table>
+            </div>
+
+        </div>
+    </div>
+
+    </div>
+    </div>
+
+</main>
+    </div>
+
+
