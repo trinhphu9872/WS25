@@ -151,7 +151,7 @@ namespace WatchStore25.Controllers
                 ModelState.AddModelError("", "There is no Item in ShoppingCart");
             if (!regex.IsMatch(model.phone))
             {
-                ModelState.AddModelError("Phone", "Wrong Phone number");
+                ModelState.AddModelError("Phone", "Số Điện thoại không hợp lệ");
             }
         }
     }
