@@ -27,16 +27,23 @@ namespace WatchStore25.Tests.Controllers
         }
 
         [TestMethod]
-        public void About()
+        public void TestDetails()
         {
-            // Arrange
-            HomeController controller = new HomeController();
+            var controller = new HomeController();
+            var result0 = controller.ProductDetail(0) as HttpNotFoundResult;
+            Assert.IsNotNull(result0);
 
-            // Act
-            //ViewResult result = controller.About() as ViewResult;
+            var db = new WS25Entities();
+            var product = db.PRODUCTs.First();
+            var result1 = controller.ProductDetail(product.idProduct) as ViewResult;
+            Assert.IsNotNull(result1);
 
-            // Assert
-           //Assert.AreEqual("Your application description page.", result.ViewBag.Message);
+            var model = result1.Model as PRODUCT;
+            Assert.IsNotNull(model);
+            Assert.AreEqual(product.img, model.img);
+            Assert.AreEqual(product.name, model.name);
+            Assert.AreEqual(product.amount, model.amount);
+            Assert.AreEqual(product.detail, model.detail);
         }
 
         [TestMethod]

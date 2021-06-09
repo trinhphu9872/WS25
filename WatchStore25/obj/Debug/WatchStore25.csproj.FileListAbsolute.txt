@@ -1530,3 +1530,7 @@ D:\WS project\WS25\WatchStore25\bin\Microsoft.Configuration.ConfigurationBuilder
 D:\WS project\WS25\WatchStore25\bin\Microsoft.Configuration.ConfigurationBuilders.UserSecrets.dll
 D:\WS project\WS25\WatchStore25\bin\Microsoft.Configuration.ConfigurationBuilders.Base.xml
 D:\WS project\WS25\WatchStore25\bin\Microsoft.Configuration.ConfigurationBuilders.UserSecrets.xml
+D:\CuoiKy-CS\WS25\WatchStore25\bin\Microsoft.Configuration.ConfigurationBuilders.Base.dll
+D:\CuoiKy-CS\WS25\WatchStore25\bin\Microsoft.Configuration.ConfigurationBuilders.UserSecrets.dll
+D:\CuoiKy-CS\WS25\WatchStore25\bin\Microsoft.Configuration.ConfigurationBuilders.Base.xml
+D:\CuoiKy-CS\WS25\WatchStore25\bin\Microsoft.Configuration.ConfigurationBuilders.UserSecrets.xml
