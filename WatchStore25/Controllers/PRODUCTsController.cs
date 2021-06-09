@@ -11,6 +11,7 @@ using WatchStore25.Models;
 
 namespace WatchStore25.Controllers
 {
+    [Authorize(Roles = "Admin")]
     public class PRODUCTsController : Controller
     {
         private WS25Entities db = new WS25Entities();

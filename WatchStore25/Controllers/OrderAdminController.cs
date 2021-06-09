@@ -10,14 +10,15 @@ using WatchStore25.Models;
 
 namespace WatchStore25.Controllers
 {
+    [Authorize(Roles = "Admin")]
     public class OrderAdminController : Controller
     {
         private WS25Entities db = new WS25Entities();
         // GET: OrderAdmin
         public ActionResult Index()
         {
-            ViewBag.SL = db.ORDER_PRODUCT.Count();
             var dETAIL_ORDER = db.DETAIL_ORDER.Include(d => d.ORDER_PRODUCT).Include(d => d.PRODUCT);
+            ViewBag.SL = db.DETAIL_ORDER.Count();
             return View(dETAIL_ORDER.ToList());
 
         }
