@@ -117,7 +117,7 @@ namespace WatchStore25.Controllers
               ShopingCarts.Clear();
               ShopingCarts.RemoveAt(productID);
               Session["ShopingCarts"] = ShopingCarts;
-              return RedirectToAction("Index");
+              return RedirectToAction("Index");SS
               *//*   getShoppingCart();
                  ShopingCarts.Clear();
                  var product = db.PRODUCTs.Find(productID);

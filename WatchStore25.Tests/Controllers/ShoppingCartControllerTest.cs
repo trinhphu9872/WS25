@@ -15,24 +15,25 @@ namespace WatchStore25.Tests.Controllers
 {
     public class MockHttpSession : HttpSessionStateBase
     {
-        public Hashtable buffer = new Hashtable();
+        public Hashtable buffe = new Hashtable();
         public override object this[string key]
         {
             get
             {
-                return buffer[key];
+                return buffe[key];
             }
             set
             {
-                buffer[key] = value;
+                buffe[key] = value;
             }
         }
     }
+    
 
     [TestClass]
     public class ShoppingCartControllerTest
     {
-    
+
         [TestMethod]
         public void testIndex()
         {
@@ -40,7 +41,30 @@ namespace WatchStore25.Tests.Controllers
             var context = new Mock<HttpContextBase>();
             context.Setup(c => c.Session).Returns(session);
             var controller = new ShoppingCartController();
-           
+
+            controller.ControllerContext = new ControllerContext(context.Object, new RouteData(), controller);
+            /* case1*/
+            session["ShopingCarts"] = null;
+
+            var res = controller.Index() as ViewResult;
+            Assert.IsNotNull(res);
+
+            var model = res.Model as List<DETAIL_ORDER>;
+            Assert.IsNotNull(model);
+            Assert.AreEqual(0, model.Count);
+
+
+
+        }
+
+        [TestMethod]
+        public void testIndexNoNull()
+        {
+            var session = new MockHttpSession();
+            var context = new Mock<HttpContextBase>();
+            context.Setup(c => c.Session).Returns(session);
+            var controller = new ShoppingCartController();
+
             controller.ControllerContext = new ControllerContext(context.Object, new RouteData(), controller);
             /* case1*/
             session["ShopingCarts"] = null;
@@ -55,7 +79,8 @@ namespace WatchStore25.Tests.Controllers
             var db = new WS25Entities();
             var pro = db.PRODUCTs.First();
             var shoppingCart = new List<DETAIL_ORDER>();
-            shoppingCart.Add(new DETAIL_ORDER {
+            shoppingCart.Add(new DETAIL_ORDER
+            {
                 PRODUCT = pro,
                 totalProduct = 1
             });
@@ -67,10 +92,10 @@ namespace WatchStore25.Tests.Controllers
 
             session["ShopingCarts"] = shoppingCart;
 
-             res = controller.Index() as ViewResult;
+            res = controller.Index() as ViewResult;
             Assert.IsNotNull(res);
 
-             model = res.Model as List<DETAIL_ORDER>;
+            model = res.Model as List<DETAIL_ORDER>;
             Assert.IsNotNull(model);
             Assert.AreEqual(1, model.Count);
             Assert.AreEqual(pro.idProduct, model.First().PRODUCT.idProduct);
@@ -79,6 +104,7 @@ namespace WatchStore25.Tests.Controllers
 
 
         }
+
         [TestMethod]
         public void testCreate()
         {
@@ -89,7 +115,7 @@ namespace WatchStore25.Tests.Controllers
             var controller = new ShoppingCartController();
 
             controller.ControllerContext = new ControllerContext(context.Object, new RouteData(), controller);
-            
+
             var db = new WS25Entities();
             var pro = db.PRODUCTs.First();
             var res = controller.Create(pro.idProduct, 2) as RedirectToRouteResult;
@@ -107,6 +133,7 @@ namespace WatchStore25.Tests.Controllers
 
 
         }
+
         [TestMethod]
         public void testDelete()
         {
@@ -128,7 +155,7 @@ namespace WatchStore25.Tests.Controllers
 
             Assert.IsNotNull(cart);
             Assert.AreEqual(0, cart.Count);
-  
+
         }
         [TestMethod]
         public void testEdit()
@@ -141,16 +168,49 @@ namespace WatchStore25.Tests.Controllers
 
             controller.ControllerContext = new ControllerContext(context.Object, new RouteData(), controller);
             var db = new WS25Entities();
-            
-           
+            var data1 = db.PRODUCTs.First();
+
+            session["ShoppingCarts"] = null;
+            var res = controller.Edit(null, null) as RedirectToRouteResult;
+            Assert.IsNotNull(res);
             Assert.AreEqual("Index", res.RouteValues["action"]);
-
-
             var cart = session["ShopingCarts"] as List<DETAIL_ORDER>;
-            cart.Clear();
-
             Assert.IsNotNull(cart);
-            Assert.AreEqual(0, cart.Count);
+            Assert.AreEqual(0, cart.Count());
+
+
+
+
+        }
+
+        [TestMethod]
+        public void testDelitem()
+        {
+            var session = new MockHttpSession();
+            var context = new Mock<HttpContextBase>();
+            context.Setup(c => c.Session).Returns(session);
+
+            var controller = new ShoppingCartController();
+
+            controller.ControllerContext = new ControllerContext(context.Object, new RouteData(), controller);
+            var db = new WS25Entities();
+            var data1 = db.PRODUCTs.First();
+            var shoppingCart = new List<DETAIL_ORDER>();
+            shoppingCart.Add(new DETAIL_ORDER
+            {
+                PRODUCT = data1,
+                totalProduct = 0
+            });
+            /*Remove */
+            shoppingCart = null;
+            var res = controller.Edit(null, null) as RedirectToRouteResult;
+            Assert.IsNotNull(res);
+            Assert.AreEqual("Index", res.RouteValues["action"]);
+            var cart = session["ShopingCarts"] as List<DETAIL_ORDER>;
+            Assert.IsNotNull(cart);
+            Assert.AreEqual(0, cart.Count());
+
+
 
         }
     }

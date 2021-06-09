@@ -110,6 +110,7 @@
   <ItemGroup>
     <Compile Include="Controllers\OrderAdminControllerTest.cs" />
     <Compile Include="Controllers\ProductsControllerTest.cs" />
+    <Compile Include="Controllers\BillControllerTest.cs" />
     <Compile Include="Controllers\ShoppingCartControllerTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Controllers\HomeControllerTest.cs" />

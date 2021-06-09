@@ -24,27 +24,29 @@
                         <h2>Tên</h2>
                         <input type="text"
                                class="form-control text-form"
-                               id="inputName" />
+                               id="inputName"
+                               required/>
                     </div>
                     <div class="form-group ">
                         <h2>Họ</h2>
                         <input type="text"
                                class="form-control text-form"
-                               id="inputLastName" />
+                               id="inputLastName" 
+                               required/>
                     </div>
 
                     <div class="form-group">
                         <h2>Địa chỉ</h2>
                         <div class="col-md-10">
-                            @Html.EditorFor(model => model.address, new { htmlAttributes = new { @class = "form-control text-form" } })
-                            @Html.ValidationMessageFor(model => model.address, "", new { @class = "text-danger" })
+                            @Html.EditorFor(model => model.address, new { htmlAttributes = new { @class = "form-control text-form" , required = "required" } })
+                            @Html.ValidationMessageFor(model => model.address,"", new { @class = "text-danger"  })
                         </div>
                     </div>
 
                     <div class="form-group">
                         <h2>Điện thoại</h2>
                         <div class="col-md-10">
-                            @Html.EditorFor(model => model.phone, new { htmlAttributes = new { @class = "form-control text-form" } })
+                            @Html.EditorFor(model => model.phone, new { htmlAttributes = new { @class = "form-control text-form", required = "required" } })
                             @Html.ValidationMessageFor(model => model.phone, "", new { @class = "text-danger" })
                         </div>
                     </div>
@@ -52,7 +54,7 @@
                     <div class="form-group">
                         <h2>Ghi chú</h2>
                         <div class="col-md-10">
-                            @Html.EditorFor(model => model.noteOrder, new { htmlAttributes = new { @class = "form-control text-form" } })
+                            @Html.EditorFor(model => model.noteOrder, new { htmlAttributes = new { @class = "form-control text-form", required = "required" } })
                             @Html.ValidationMessageFor(model => model.noteOrder, "", new { @class = "text-danger" })
                         </div>
                     </div>
