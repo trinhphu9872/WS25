@@ -16,8 +16,9 @@ namespace WatchStore25.Controllers
         public ActionResult HomeAdmin()
         {
             ViewBag.product = db.PRODUCTs;
-           
-            ViewBag.Order = db.ORDER_PRODUCT;
+            var count = db.PRODUCTs.Count();
+            ViewBag.dem = count;
+         
             return View();
         }
         public ActionResult CustomerManager()

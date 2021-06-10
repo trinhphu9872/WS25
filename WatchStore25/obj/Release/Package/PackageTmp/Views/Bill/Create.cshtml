@@ -5,7 +5,8 @@
     Layout = "~/Views/Shared/_Layout1.cshtml";
     string keyword = Request.QueryString["keyword"];
     @*    var cart = ViewBag.Cart as List<DETAIL_ORDER>;*@
-    var cart = ViewBag.Cart as List<DETAIL_ORDER>;
+var user = ViewBag.user as List<CUSTOMER>;
+var cart = ViewBag.Cart as List<DETAIL_ORDER>;
 }
 
 <div class="container">
@@ -17,56 +18,48 @@
             {
                 @Html.AntiForgeryToken()
 
-                <div class="form-horizontal">
+        <div class="form-horizontal">
 
-                    <hr />
-                    <div class="form-group">
-                        <h2>Tên</h2>
-                        <input type="text"
-                               class="form-control text-form"
-                               id="inputName"
-                               required/>
-                    </div>
-                    <div class="form-group ">
-                        <h2>Họ</h2>
-                        <input type="text"
-                               class="form-control text-form"
-                               id="inputLastName" 
-                               required/>
-                    </div>
-
-                    <div class="form-group">
-                        <h2>Địa chỉ</h2>
-                        <div class="col-md-10">
-                            @Html.EditorFor(model => model.address, new { htmlAttributes = new { @class = "form-control text-form" , required = "required" } })
-                            @Html.ValidationMessageFor(model => model.address,"", new { @class = "text-danger"  })
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <h2>Điện thoại</h2>
-                        <div class="col-md-10">
-                            @Html.EditorFor(model => model.phone, new { htmlAttributes = new { @class = "form-control text-form", required = "required" } })
-                            @Html.ValidationMessageFor(model => model.phone, "", new { @class = "text-danger" })
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <h2>Ghi chú</h2>
-                        <div class="col-md-10">
-                            @Html.EditorFor(model => model.noteOrder, new { htmlAttributes = new { @class = "form-control text-form", required = "required" } })
-                            @Html.ValidationMessageFor(model => model.noteOrder, "", new { @class = "text-danger" })
-                        </div>
-                    </div>
-
-
-                    <div class="form-group">
-                        <div class="col-md-offset-2 col-md-10" style="width:300px; margin:auto">
-                            <input type="submit" value="Tạo đơn" class="btn btn-default" />
-                            <input type="button" value="Trở về" class="btn btn-default" class="detail" onClick="history.go(-1); return false;" />
-                        </div>
-                    </div>
+            <hr />
+            <div class="form-group">
+                <h2>Họ Tên</h2>
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.CUSTOMER.name, new { htmlAttributes = new { @class = "form-control text-form", required = "required" } })
+                    @Html.ValidationMessageFor(model => model.CUSTOMER.name, "", new { @class = "text-danger" })
                 </div>
+            </div>
+            <div class="form-group">
+                <h2>Địa chỉ</h2>
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.address, new { htmlAttributes = new { @class = "form-control text-form", required = "required" } })
+                    @Html.ValidationMessageFor(model => model.address, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <h2>Điện thoại</h2>
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.phone, new { htmlAttributes = new { @class = "form-control text-form", required = "required" } })
+                    @Html.ValidationMessageFor(model => model.phone, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <h2>Ghi chú</h2>
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.noteOrder, new { htmlAttributes = new { @class = "form-control text-form", required = "required" } })
+                    @Html.ValidationMessageFor(model => model.noteOrder, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10" style="width:300px; margin:auto">
+                    <input type="submit" value="Tạo đơn" class="btn btn-default" />
+                    <input type="button" value="Trở về" class="btn btn-default" class="detail" onClick="history.go(-1); return false;" />
+                </div>
+            </div>
+        </div>
 
             }
         </div>
