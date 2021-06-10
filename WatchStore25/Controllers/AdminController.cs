@@ -15,9 +15,9 @@ namespace WatchStore25.Controllers
         // GET: Admin
         public ActionResult HomeAdmin()
         {
-            ViewBag.SL = db.PRODUCTs.Count();
-            ViewBag.KH = db.CUSTOMERs.Count();
-            ViewBag.ORDER = db.ORDER_PRODUCT.Count();
+            ViewBag.product = db.PRODUCTs;
+           
+            ViewBag.Order = db.ORDER_PRODUCT;
             return View();
         }
         public ActionResult CustomerManager()

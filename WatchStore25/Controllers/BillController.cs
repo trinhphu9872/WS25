@@ -93,13 +93,16 @@ namespace WatchStore25.Controllers
         public ActionResult Create(ORDER_PRODUCT model)
         {
             validationBill(model);
+            ViewBag.user = db.CUSTOMERs;
             var date = DateTime.Now;
-
+          
             model.idStatusOrder = false;
             model.idCustomer = 10;
+  
             model.startDate = date;
             model.updateDate = date;
-          
+            model.CUSTOMER.address = model.address;
+            model.CUSTOMER.phoneNumber = model.phone;
    
 
             if (ModelState.IsValid)
@@ -113,6 +116,7 @@ namespace WatchStore25.Controllers
                     item.idDetailOrder = 10;
                     db.DETAIL_ORDER.Add(new DETAIL_ORDER
                     {
+                        
                         idOrderProduct = model.idOrderProduct,
                         idProduct = item.PRODUCT.idProduct,
                         totalAmount = item.PRODUCT.amount * item.totalProduct,
@@ -120,6 +124,8 @@ namespace WatchStore25.Controllers
                         amount = item.PRODUCT.amount,
                         totalProduct = item.totalProduct,
                         idStatusOrder = model.idStatusOrder,
+            
+
                     });
                     getCartItem();
                     CartItem.Add(item);

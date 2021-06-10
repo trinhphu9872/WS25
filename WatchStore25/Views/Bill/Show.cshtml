@@ -14,6 +14,9 @@
     <table class="table" style="margin-top:50px ; margin-bottom:120px">
         <tr>
             <th>
+                Họ và Tên
+            </th>
+            <th>
                 Sản phẩm
             </th>
             <th>
@@ -35,13 +38,16 @@
         {
     <tr>
         <td>
+            @Html.DisplayFor(modelItem => item.CUSTOMER.name)
+        </td>
+        <td>
             @foreach (var x in CartItem)
             {
-                  <div>@x.PRODUCT.name x @x.totalProduct</div>
+                <div>@x.PRODUCT.name x @x.totalProduct</div>
             }
         </td>
         <td>@(CartItem.Sum(z=> (z.PRODUCT.amount * z.totalProduct - (z.PRODUCT.amount * z.totalProduct * z.PRODUCT.tax / 100))))</td>
-     
+
         <td>
             @Html.DisplayFor(modelItem => item.address)
         </td>
