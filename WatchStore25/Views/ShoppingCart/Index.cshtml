@@ -1,5 +1,6 @@
 ﻿@model IEnumerable<WatchStore25.Models.DETAIL_ORDER>
 @using System.Globalization;
+@using WatchStore25.Models;
 
 @{
     ViewBag.Title = "Giỏ hàng";
@@ -20,6 +21,7 @@
             </tr>
             @foreach (var item in Model)
             {
+               
                 <tr id="remove">
                     <td>
                         <div class="cart-info">
@@ -46,10 +48,10 @@
         </table>
         <button class="btn"><a style="color:azure" href="@Url.Action("Edit","ShoppingCart")">Cập Nhật đơn hàng</a></button>
     }
-    <div>
-        <button class="btn  "><a style="color:azure" href="@Url.Action("ProductsMan","Home")">Tiếp tục mua hàng</a></button>
-        <button class="btn "><a style="color:azure" href="@Url.Action("Delete","ShoppingCart")">Xóa giỏ hàng</a> </button>
-    </div>
+<div>
+    <button class="detail btn" onClick="history.go(-1); return false;"><a href="##"  style="color:azure"  onClick="history.go(-1); return false;">Tiếp tục mua hàng</a></button>
+    <button class="btn "><a style="color:azure" href="@Url.Action("Delete","ShoppingCart")">Xóa giỏ hàng</a> </button>
+</div>
 
     <hr />
     <div class="total-price">

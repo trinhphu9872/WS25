@@ -8,7 +8,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <TimeStampOfAssociatedLegacyPublishXmlFile />
     <EncryptedPassword>AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAzI2ptnZzkkqEj94bIGX3SgAAAAACAAAAAAAQZgAAAAEAACAAAAD04PH1iEIdWM1O8nXT76UAm3d1lxQ781c/mnBpYNgkIAAAAAAOgAAAAAIAACAAAADCbBS90HMDPpnNxxbwQ6OVsM6y8t9mpo3Ruv16A7peACAAAAD0hONFRn2nG449zEWCC9rFuif4+REHGA0L3bkqEwpsNkAAAAB75l+bBCwF0Ei0ysSfPFCGdZPDGf6wjKWwI1RS5MbGaRwqVAAnnLGEljl0kM23z8NxgfS5hPkuANtxQ0btDMr9</EncryptedPassword>
     <_PublishTargetUrl>ftp://cntttest.vanlanguni.edu.vn:18085</_PublishTargetUrl>
-    <History>True|2021-06-10T15:47:21.8175005Z;True|2021-06-09T23:09:21.5755087+07:00;</History>
+    <History>True|2021-06-11T07:56:23.2629513Z;True|2021-06-11T00:08:31.5756437+07:00;True|2021-06-10T22:47:21.8175005+07:00;True|2021-06-09T23:09:21.5755087+07:00;</History>
   </PropertyGroup>
   <ItemGroup>
     <File Include="bin/Antlr3.Runtime.dll">
@@ -258,10 +258,10 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>06/09/2021 21:57:20</publishTime>
     </File>
     <File Include="bin/WatchStore25.dll">
-      <publishTime>06/10/2021 22:47:12</publishTime>
+      <publishTime>06/11/2021 14:56:15</publishTime>
     </File>
     <File Include="bin/WatchStore25.pdb">
-      <publishTime>06/10/2021 22:47:12</publishTime>
+      <publishTime>06/11/2021 14:56:15</publishTime>
     </File>
     <File Include="bin/WebGrease.dll">
       <publishTime>06/09/2021 21:57:20</publishTime>
@@ -537,7 +537,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>06/09/2021 21:57:18</publishTime>
     </File>
     <File Include="Views/Admin/HomeAdmin.cshtml">
-      <publishTime>06/10/2021 22:46:11</publishTime>
+      <publishTime>06/11/2021 00:01:18</publishTime>
     </File>
     <File Include="Views/Admin/ProductManager.cshtml">
       <publishTime>06/09/2021 21:57:18</publishTime>
@@ -567,10 +567,10 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>06/09/2021 21:57:18</publishTime>
     </File>
     <File Include="Views/Home/ProductsMan.cshtml">
-      <publishTime>06/09/2021 21:57:18</publishTime>
+      <publishTime>06/11/2021 14:55:48</publishTime>
     </File>
     <File Include="Views/Home/ProductsWoman.cshtml">
-      <publishTime>06/09/2021 21:57:18</publishTime>
+      <publishTime>06/11/2021 14:55:41</publishTime>
     </File>
     <File Include="Views/Home/Search.cshtml">
       <publishTime>06/09/2021 21:57:18</publishTime>
@@ -654,7 +654,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>06/09/2021 21:57:18</publishTime>
     </File>
     <File Include="Views/ShoppingCart/Index.cshtml">
-      <publishTime>06/09/2021 23:06:33</publishTime>
+      <publishTime>06/11/2021 14:55:12</publishTime>
     </File>
     <File Include="Views/Web.config">
       <publishTime>06/09/2021 21:57:18</publishTime>

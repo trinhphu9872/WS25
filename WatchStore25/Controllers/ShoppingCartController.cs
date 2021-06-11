@@ -16,6 +16,7 @@ namespace WatchStore25.Controllers
     {
         private WS25Entities db = new WS25Entities();
         private List<DETAIL_ORDER> ShopingCarts = null;
+        private List<PRODUCT> typePro = null;
         private void getShoppingCart()
         {
 
@@ -32,13 +33,29 @@ namespace WatchStore25.Controllers
             }
 
         }
-        // GET: Cart
 
 
-        // GET: ShoppingCart
+        private void gettype()
+        {
+
+            /*Phiên làm việc quản lí*/
+            /*       var session = System.Web.HttpContext.Current.Session;*/
+            if (Session["typePro"] != null)
+            {
+                typePro = Session["typePro"] as List<PRODUCT>;
+            }
+            else
+            {
+                typePro = new List<PRODUCT>();
+                Session["typePro"] = typePro;
+            }
+
+        }
         public ActionResult Index()
         {
             getShoppingCart();
+            gettype();
+
             var hashTable = new Hashtable();
             foreach (var dETAIL_ORDER in ShopingCarts)
             {
@@ -52,9 +69,11 @@ namespace WatchStore25.Controllers
                 }
             }
             ShopingCarts.Clear();
+            typePro.Clear();
             foreach (DETAIL_ORDER dETAIL_ORDER in hashTable.Values)
             {
                 ShopingCarts.Add(dETAIL_ORDER);
+               
             }
             return View(ShopingCarts);
         }
@@ -65,7 +84,9 @@ namespace WatchStore25.Controllers
         public ActionResult Create(int productID, int quanlity)
         {
             getShoppingCart();
+            gettype();
             var product = db.PRODUCTs.Find(productID);
+            typePro.Add(product);
             ShopingCarts.Add(new DETAIL_ORDER
             {
                 PRODUCT = product,
