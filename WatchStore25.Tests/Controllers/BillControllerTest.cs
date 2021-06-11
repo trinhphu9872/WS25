@@ -35,6 +35,7 @@ namespace WatchStore25.Tests.Controllers
 
             var res = controller.Index() as ViewResult;
             Assert.IsNotNull(res);
+/**/
         }
         [TestMethod]
         public void testShow()

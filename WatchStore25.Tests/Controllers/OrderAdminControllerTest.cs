@@ -56,6 +56,7 @@ namespace WatchStore25.Tests.Controllers
             Assert.AreEqual(detail.STATUS_ORDER.Status, model.STATUS_ORDER.Status);
             Assert.AreEqual(detail.totalAmount, model.totalAmount);
             Assert.AreEqual(detail.totalProduct, model.totalProduct);
+/**/
         }
 
         [TestMethod]

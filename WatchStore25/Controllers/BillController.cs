@@ -123,7 +123,7 @@ namespace WatchStore25.Controllers
                         discount = item.discount,
                         amount = item.PRODUCT.amount,
                         totalProduct = item.totalProduct,
-                        idStatusOrder = model.idStatusOrder,
+                        idStatusOrder = true,
             
 
                     });

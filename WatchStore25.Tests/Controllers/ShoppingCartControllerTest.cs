@@ -127,8 +127,8 @@ namespace WatchStore25.Tests.Controllers
             Assert.IsNotNull(cart);
             Assert.AreEqual(1, cart.Count);
             Assert.AreEqual(pro.idProduct, cart.First().PRODUCT.idProduct);
-            Assert.AreEqual(2, cart.First().totalProduct);
-
+            Assert.AreEqual(2, cart.First().totalProduct);   
+/**/
 
 
 

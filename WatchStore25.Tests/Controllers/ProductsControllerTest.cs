@@ -152,6 +152,7 @@ namespace WatchStore25.Tests.Controllers
 
                 var entity = db.PRODUCTs.Find(del.idProduct);
                 Assert.IsNotNull(entity);
+/**/
             }
         }
     }

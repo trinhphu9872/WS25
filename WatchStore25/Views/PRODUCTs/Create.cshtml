@@ -24,7 +24,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.name, "Tên sản phẩm", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.name, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.EditorFor(model => model.name, new { htmlAttributes = new { @class = "form-control", required = "required" } })
                 @Html.ValidationMessageFor(model => model.name, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -32,7 +32,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.idTypeProduct, "Loại sản phẩm", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-2">
-                @Html.DropDownList("idTypeProduct", null, htmlAttributes: new { @class = "form-control" })
+                @Html.DropDownList("idTypeProduct", null, htmlAttributes: new { @class = "form-control", required = "required" })
                 @Html.ValidationMessageFor(model => model.idTypeProduct, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -41,7 +41,7 @@
     <div class="form-group">
         @Html.LabelFor(model => model.detail, "Chi tiết sản phẩm", htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
-            @Html.EditorFor(model => model.detail, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.EditorFor(model => model.detail, new { htmlAttributes = new { @class = "form-control", required = "required" } })
             @Html.ValidationMessageFor(model => model.detail, "", new { @class = "text-danger" })
         </div>
     </div>
@@ -60,7 +60,7 @@
     <div class="form-group">
         @Html.LabelFor(model => model.inventory, "Số lượng sản phẩm", htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-2">
-            @Html.EditorFor(model => model.inventory, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.EditorFor(model => model.inventory, new { htmlAttributes = new { @class = "form-control", required = "required" }  })
             @Html.ValidationMessageFor(model => model.inventory, "", new { @class = "text-danger" })
         </div>
     </div>
@@ -68,7 +68,7 @@
     <div class="form-group">
         @Html.LabelFor(model => model.amount, "Giá sản phẩm", htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-2">
-            @Html.EditorFor(model => model.amount, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.EditorFor(model => model.amount, new { htmlAttributes = new { @class = "form-control", required = "required" } })
             @Html.ValidationMessageFor(model => model.amount, "", new { @class = "text-danger" })
         </div>
     </div>
@@ -76,7 +76,7 @@
     <div class="form-group">
         @Html.LabelFor(model => model.tax, "Tax", htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-2">
-            @Html.EditorFor(model => model.tax, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.EditorFor(model => model.tax, new { htmlAttributes = new { @class = "form-control", required = "required" } })
             @Html.ValidationMessageFor(model => model.amount, "", new { @class = "text-danger" })
         </div>
     </div>

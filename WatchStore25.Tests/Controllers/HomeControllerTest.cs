@@ -24,6 +24,7 @@ namespace WatchStore25.Tests.Controllers
 
             // Assert
             Assert.IsNotNull(result);
+/**/
         }
 
         [TestMethod]
