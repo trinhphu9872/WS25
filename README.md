@@ -2,7 +2,7 @@
 Programing :C#  \
 Framework : .net MVC \
 Đồ Án Wedsite bán đồng hồ \
-Link Preview Website : http://cntttest.vanlanguni.edu.vn:18080/CT25Team21/ \
+Link Preview Website : http://cntttest.vanlanguni.edu.vn:18080/CT25Team21/ 
 
 
 -Start Project:  \
