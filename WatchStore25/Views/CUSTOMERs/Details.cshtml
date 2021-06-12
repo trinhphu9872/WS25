@@ -1,0 +1,54 @@
+﻿@model WatchStore25.Models.CUSTOMER
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/AdminLayout/LayoutAdmin.cshtml";
+}
+@Html.Partial("Event_")
+
+    <main>
+        <hr />
+        <div class="recent-grid">
+            <div class="projects">
+                <div class="card">
+                    <div class="card-header">
+                        <h3>Khách Hàng</h3>
+                    </div>
+
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table width="100%">
+                                <tr>
+                                    <td>Tên Khách Hàng:</td>
+                                    <td> @Html.DisplayFor(model => model.name)</td>
+                                </tr>
+                                <tr>
+                                    <td>Số Điện Thoại:</td>
+                                    <td> @Html.DisplayFor(model => model.phoneNumber)</td>
+                                </tr>
+                                <tr>
+                                    <td>Địa Chỉ:</td>
+                                    <td> @Html.DisplayFor(model => model.address)</td>
+                                </tr>
+                                <tr>
+                                    <td>Email:</td>
+                                    <td> @Html.DisplayFor(model => model.email)</td>
+                                </tr>
+                                <tr>
+                                    <td>Ngày Sinh:</td>
+                                    <td> @Html.DisplayFor(model => model.dateOfBirth)</td>
+                                </tr>
+
+                            </table>
+
+                            <div class="form-actions no-color">
+                                @Html.ActionLink("Back", "Index")
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+

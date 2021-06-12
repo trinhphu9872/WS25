@@ -1,0 +1,59 @@
+﻿@model IEnumerable<WatchStore25.Models.CUSTOMER>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/AdminLayout/LayoutAdmin.cshtml";
+}
+@Html.Partial("Event_")
+<main>
+    <div class="cards1">
+        <div class="card-single">
+            <div>
+                <h1>@ViewBag.SL</h1>
+                <span>Customers</span>
+            </div>
+            <div>
+                <span class="las la-users"></span>
+            </div>
+        </div>
+    </div>
+    <div class="recent-grid">
+        <div class="projects">
+            <div class="card">
+                <div class="card-header">
+                    <h3>Khách Hàng</h3>
+                </div>
+
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table width="100%">
+                            <thead>
+                                    <tr>
+                                        <td>Mã Khách Hàng</td>
+                                        <td>Họ Và Tên</td>
+                                        <td>Số Điện Thoại</td>
+                                        <td>Địa Chỉ</td>
+                                    </tr>
+                                </thead>
+                            <tbody>
+                                @foreach (var item in Model)
+                                {
+                                    <tr>
+                                        <td>@item.idCustomer</td>
+                                        <td> <span class="status purple"></span>@item.name</td>
+                                        <td>@item.phoneNumber</td>
+                                        <td><Address>@item.address</Address></td>
+                                        <td class="card-header-seeall">
+                                        <button class="detail">@Html.ActionLink("Chi Tiết", "Details", new { id = item.idCustomer })</button>
+                                        </td>
+                                    </tr>
+                                }
+                                </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+

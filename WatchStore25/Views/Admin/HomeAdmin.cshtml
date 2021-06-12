@@ -2,9 +2,12 @@
 @{
     ViewBag.Title = "Home Page";
     Layout = "~/Views/Shared/AdminLayout/LayoutAdmin.cshtml";
-    var Product = ViewBag.product ;
+    var Product = ViewBag.product;
     var dem = ViewBag.dem;
-
+    var Customer = ViewBag.customer;
+    var demcus = ViewBag.demcus;
+    var Order = ViewBag.order;
+    var demorder = ViewBag.demorder;
   }
 @Html.Partial("Event_")
 <main>
@@ -65,7 +68,7 @@
         <div>
             <div class="card-single">
                 <div>
-                    <h1>@ViewBag.KH</h1>
+                    <h1>@demcus</h1>
                     <span>Khách Hàng</span>
                 </div>
                 <div>
@@ -79,33 +82,30 @@
                     <table class="color-table-if" width="100%">
                         <thead>
                             <tr>
+                                <td>Mã Khách Hàng</td>
                                 <td>Họ Và Tên</td>
                                 <td>Số Điện Thoại</td>
                                 <td>Địa Chỉ</td>
                             </tr>
                         </thead>
                         <tbody>
+                            @foreach (var items in Customer)
+                            {
+                                if (items.idCustomer < 5)
+                                {
                             <tr>
-                                <td> <span class="status purple"></span> Nguyễn Thanh An</td>
-                                <td>0936788172</td>
-                                <td><Address>170/21-Bùi Đình Túy</Address></td>
-                                <td><button class="detail">Chi Tiết<span class="las la-arrow-right"></span>
+                                <td><span class="status purple"></span> CT @items.idCustomer</td>
+                                <td>@items.name</td>
+                                <td>@items.phoneNumber</td>
+                                <td>@items.address</td>
+                                <td><button class="detail"><a class="text-light" href=@Url.Action("Details", "CUSTOMERs", new { id = items.idCustomer })>Chi Tiết</a></button></td>
                             </tr>
-                            <tr>
-                                <td><span class="status pink"></span>Hà Minh Thông</td>
-                                <td>0946788281</td>
-                                <td><address>170/21-Bùi Đình Túy</address></td>
-                                <td><button class="detail">Chi Tiết<span class="las la-arrow-right"></span>
-                            </tr>
-                            <tr>
-                                <td><span class="status orange"></span>Lê Văn Hùng</td>
-                                <td>09347888123</td>
-                                <td><address>Dương Quảng Hàm</address></td>
-                                <td><button class="detail">Chi Tiết<span class="las la-arrow-right"></span>
-                            </tr>
+                                }
+
+                            }
                             <tr>
                                 <td class="card-header-seeall" colspan="4">
-                                    <button class="detail"><a href=@Url.Action( "CustomerManager","Admin")>Xem Tất Cả</a></button>
+                                    <button class="detail"><a href=@Url.Action( "Index","CUSTOMERs")>Xem Tất Cả</a></button>
                                 </td>
                             </tr>
                         </tbody>
@@ -118,7 +118,7 @@
         <div>
             <div class="card-single">
                 <div>
-                    <h1>@ViewBag.ORDER</h1>
+                    <h1>@demorder</h1>
                     <span>Đơn Hàng</span>
                 </div>
                 <div>
@@ -138,41 +138,22 @@
                             </tr>
                         </thead>
                         <tbody>
-
-                          
+                            @foreach (var itemi in Order)
+                            {
+                                if (itemi.idDetailOrder < 92)
+                                {
                             <tr>
-                                <td> <span class="status purple"></span>OD002</td>
-                                <td>
-                                    Casio AE-1200WHD-1AVDF<br>
-                                    Daniel Wellington DW00100148
-                                </td>
-                                <td class="stylesl">
-                                    2
-                                    <br>
-                                    3
-                                </td>
-                                <td>17/04/2020</td>
-                  
-                                <td><button class="detail"><a class="text-light" href=@Url.Action("Details","OrderAdmin",new { id =28})>Chi Tiết</a><span class="las la-arrow-right"></span></td>
+                                <td><span class="status pink"></span>OD @itemi.idDetailOrder</td>
+                                <td>@itemi.PRODUCT.name</td>
+                                <td>@itemi.totalProduct</td>
+                                <td>@itemi.ORDER_PRODUCT.startDate</td>
+                                <td><button class="detail"><a class="text-light" href=@Url.Action("Edit", "OrderAdmin", new { id = itemi.idDetailOrder })>Chi Tiết</a></button></td>
                             </tr>
+                                }
+                            }
                             <tr>
-                                <td> <span class="status purple"></span>OD003</td>
-                                <td>
-                                    Daniel Wellington DW00100148<br>
-                                    G-Shock GA-400-1BDR
-                                </td>
-                                <td class="stylesl">
-                                    2
-                                    <br>
-                                    3
-                                </td>
-                                <td>31/02/2020</td>
-                         
-                                <td><button class="detail"><a class="text-light" href=@Url.Action("Details","OrderAdmin",new { id =89})>Chi Tiết</a><span class="las la-arrow-right"></span></td>
-                            </tr>
-                            <tr>
-                                <td class="card-header-seeall">
-                                    <button class="detail"><a href=@Url.Action("Index","OrderAdmin")>Xem Tất Cả</a></button>
+                                <td class="card-header-seeall" colspan="4">
+                                    <button class="detail"><a href=@Url.Action( "Index","OrderAdmin")>Xem Tất Cả</a></button>
                                 </td>
                             </tr>
                         </tbody>
