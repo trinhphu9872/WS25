@@ -1,7 +1,7 @@
 # WS25 Project
 Programing :C#  \
 Framework : .net MVC \
-Đồ Án Wedsite bán đồng hồ \
+Wedsite Watch Store \
 Link Preview Website : http://cntttest.vanlanguni.edu.vn:18080/CT25Team21/ 
 
 
